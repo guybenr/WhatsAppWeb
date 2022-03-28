@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 
-  background-image: url("back.jpg"); /* The image used */
+  background-image: url("background.jpg"); /* The image used */
   height: 800px; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -20,12 +20,31 @@ code {
 }
 
 .home {
-  max-width: 1000px;
-  padding-top: 8em; 
+  max-width: 500px;
+  padding-top: 20em; 
   margin: auto;
   font-weight: 1000;
 }
 
-.link {
-  color: chocolate;
+.form-control {
+  border-radius: 20px;
+  padding-left:30px;
+  width: 500px;
+  height: 70px;
+  background: white;
+}
+
+.username {
+  background: url(person-fill.svg) no-repeat scroll 10px;
+  max-width: 100%;  
+}
+
+.password {
+  background: url(lock-icon.png) no-repeat scroll 10px;
+  max-width: 100%;  
+}
+
+.btn-primary {
+  width: 100px;
+  margin: 20px 0 0 200px;
 }
