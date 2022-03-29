@@ -35,16 +35,14 @@ code {
 }
 
 .username {
-  background: url(person-fill.svg) no-repeat scroll 10px;
-  max-width: 100%;  
+  background: url(person-fill.svg) no-repeat 10px;
 }
 
 .password {
-  background: url(lock-icon.png) no-repeat scroll 10px;
-  max-width: 100%;  
+  background: url(lock-icon.png) no-repeat 10px;
 }
 
 .btn-primary {
-  width: 100px;
-  margin: 20px 0 0 200px;
+  width: 150px;
+  margin: 20px 0 0 180px;
 }
