@@ -5,3 +5,5 @@ function Hey() {
         </div>
     );
 }
+
+export default Hey
