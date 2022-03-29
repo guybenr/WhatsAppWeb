@@ -18,7 +18,6 @@ function OpenScreen() {
                 <button type="submit" class="btn btn-primary">Log in</button>
             </form>
         </div>
-
     );
 }
 
