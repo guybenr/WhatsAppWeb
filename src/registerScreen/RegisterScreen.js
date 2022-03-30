@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function RegisterScreen() {
     return (
         <div className="register">
@@ -27,10 +29,14 @@ function RegisterScreen() {
                     <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="Confirm Password"></input>
                 </div>
+                <div>
+                    <label>Already register?&nbsp;</label>
+                        <Link to='/'>Click here</Link>
+                    <label>&nbsp;to login</label>
+                </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
-
     );
 }
 

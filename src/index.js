@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import RegisterScreen from './registerScreen/RegisterScreen'
 import OpenScreen from './openScreen/OpenScreen'
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-  <OpenScreen />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <Routes>
+        <Route path='/Register' element={<RegisterScreen />}></Route>
+        <Route path='' element={<OpenScreen />}></Route>
+      </Routes>
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById("root")
 );
- 
