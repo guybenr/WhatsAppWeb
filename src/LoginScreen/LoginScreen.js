@@ -6,7 +6,7 @@ function LoginScreen() {
     return (
         <BrowserRouter>
             <div className="home">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>
                         <input type="email" className="form-control username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
@@ -28,5 +28,12 @@ function LoginScreen() {
             </div>
         </BrowserRouter>
     );
+}
+
+const handleSubmit = (event) => {
+    // prevent page reloading
+    event.preventDefault();
+    var {uname, pass}
+
 }
 export default LoginScreen

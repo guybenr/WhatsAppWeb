@@ -12,6 +12,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/Register' element={<RegisterScreen />}></Route>
         <Route path='' element={<OpenScreen />}></Route>
+        <Route path='/chat' element={<RegisterScreen />}></Route>
       </Routes>
     </React.StrictMode>
   </BrowserRouter>,
