@@ -1,13 +1,52 @@
-import { Link } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
+import ErrorModal from "../errorModal/ErrorModal";
+
 
 function RegisterScreen(props) {
 
-    const handleSubmit = () => {
-        var userName = document.getElementById('exampleInputEmail2');
-        var nickName = document.getElementById('nick-name');
-        var password = document.getElementById('exampleInputPassword2');
-        var confirmPass = document.getElementById('exampleInputPassword1');
+    const [showError, setShowError] = React.useState(false);
+    const [bodyMassage, setBodyMassage] = React.useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        var userName = document.getElementById('exampleInputEmail2').value;
+        var nickName = document.getElementById('nick-name').value;
+        var password = document.getElementById('exampleInputPassword2').value;
+        var confirmPass = document.getElementById('exampleInputPassword1').value;
+        
+        // input validation
+        if(userName === '') {
+            setShowError(true);
+            setBodyMassage("Please enter username.");
+            return;
+        }
+        if(nickName === '') {
+            setShowError(true);
+            setBodyMassage("Please enter nickname.");
+            return;
+        }
+        if(password === '') {
+            setShowError(true);
+            setBodyMassage("Please enter password.");
+            return;
+        }
+        if(confirmPass === '') {
+            setShowError(true);
+            setBodyMassage("Please confirm your password.");
+            return;
+        }
+        if(!(/^[A-Za-z]+[0-9]+$/.test(password))) { // test if password contain only letter and number using regex
+            setShowError(true);
+            setBodyMassage("Your password must be 8-20 characters long," + 
+                            " contain letters and numbers, and must not contain spaces, special characters, or emoji.");
+            return;
+        }
+        if(confirmPass !== password) {
+            setShowError(true);
+            setBodyMassage("The password confirmation does not match.");
+            return;
+        }
     }
 
 
@@ -15,8 +54,8 @@ function RegisterScreen(props) {
         <div className="register">
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control username" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Username"></input>
+                    <label class="form-label">Username</label>
+                    <input class="form-control username" id="exampleInputEmail2" placeholder="Username"></input>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nickname</label>
@@ -46,6 +85,7 @@ function RegisterScreen(props) {
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
+            <ErrorModal handleShow={showError} handleClose={() => setShowError(false)} bodyMassage={bodyMassage} closeButton="Close"/>
         </div>
     );
 }

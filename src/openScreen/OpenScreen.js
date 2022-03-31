@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UsersList from "../usersList/UsersList";
 import { Modal, Button } from "react-bootstrap";
+import ErrorModal from "../errorModal/ErrorModal";
 
 function OpenScreen(props) {
     const navigate = useNavigate();
@@ -48,14 +49,7 @@ function OpenScreen(props) {
                     </div>
                     <button type="submit" className="btn btn-primary">Log in</button>
                 </form>
-                <Modal show={isInvalid} onHide={handleClose}>
-                    <Modal.Body>Invalid username or password</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassge="Invalid username or password" closeButton="Close"/>
             </div>
         </main>
     );
