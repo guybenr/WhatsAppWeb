@@ -1,21 +1,27 @@
 import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import RegisterScreen from './registerScreen/RegisterScreen'
+import OpenScreen from './openScreen/OpenScreen'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+
+
+
+
 function App() {
+  const [userLoginDetails, setUserLoginDetails] = React.useState({});
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/Register' element={<RegisterScreen />}></Route>
+        <Route path='' element={<OpenScreen />}></Route>
+        <Route path='/Chat' element={<RegisterScreen />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

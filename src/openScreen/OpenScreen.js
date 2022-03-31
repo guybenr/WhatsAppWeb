@@ -1,12 +1,19 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UsersList from "../usersList/UsersList";
-import { Modal } from "bootstrap";
-
+import { Modal, Button } from "react-bootstrap";
 
 function OpenScreen(props) {
     const navigate = useNavigate();
     const [isInvalid, setIsInvalid] = React.useState(false);
+
+    const handleClose = () => {
+        setIsInvalid(false);
+    }
+    const handleShow = () => {
+        setIsInvalid(true);
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         var username = document.getElementById('exampleInputEmail1').value;
@@ -18,18 +25,12 @@ function OpenScreen(props) {
                 return;
             }
         }
-        setIsInvalid(true);
+        handleShow();
     }
 
 
     return (
-        <>
-            {isInvalid == true && 
-            <Modal show={isInvalid}>
-                <Modal.Header>Hi</Modal.Header>
-                <Modal.Body>asdfasdf</Modal.Body>
-                <Modal.Footer>This is the footer</Modal.Footer>
-            </Modal>}
+        <main>
             <div className="home" id="main-div">
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
@@ -47,8 +48,16 @@ function OpenScreen(props) {
                     </div>
                     <button type="submit" className="btn btn-primary">Log in</button>
                 </form>
+                <Modal show={isInvalid} onHide={handleClose}>
+                    <Modal.Body>Invalid username or password</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
-        </>
+        </main>
     );
 };
 
