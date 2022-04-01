@@ -49,7 +49,7 @@ function OpenScreen(props) {
                     </div>
                     <button type="submit" className="btn btn-primary">Log in</button>
                 </form>
-                <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassge="Invalid username or password" closeButton="Close"/>
+                <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassage="Invalid username or password" closeButton="Close"/>
             </div>
         </main>
     );
