@@ -19,9 +19,8 @@ function OpenScreen(props) {
         event.preventDefault();
         var username = document.getElementById('username').value;
         var password = document.getElementById('exampleInputPassword1').value;
-        for (let i = 0; i < UsersList.length; i++) {
+        for (let i = 0; i < UsersList.length; i++) { // searching for the same username and password. 
             if (UsersList[i].userName === username && UsersList[i].password === password) {
-                props.setUserLoginDetails({ username: { username }, password })
                 navigate('/Chat');
                 return;
             }
@@ -50,8 +49,7 @@ function OpenScreen(props) {
                         <label>&nbsp;to register</label>
                     </div>
                     <div>
-                    <button type="submit" className="btn btn-primary">Log in</button>
-                    <Link to='/Chat'>Log in</Link>
+                    <button onClick={handleSubmit} type="submit" className="btn btn-primary">Log in</button>
                     </div>
                 </form>
                 </div>

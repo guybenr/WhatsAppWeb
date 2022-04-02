@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/Register' element={<RegisterScreen />}></Route>
-        <Route path='' element={<OpenScreen />}></Route>
+        <Route path='/' element={<OpenScreen />}></Route>
         <Route path='/Chat' element={<ChatScreen />}></Route>
       </Routes>
     </BrowserRouter>

@@ -23,6 +23,8 @@ body {
   height: 530px;
   padding-left: 16px;
   border-radius: 20px;
+  position: absolute;
+  top: 50px;
 }
 
 .login {
@@ -33,7 +35,7 @@ body {
 }
 
 .form-label {
-  padding-top: 30px;
+  padding-top: 2px;
 }
 
 .form-control {
@@ -85,9 +87,11 @@ body {
 .boxRegister {
   background-color: rgb(255, 255, 255);
   width: 530px;
-  height: 970px;
+  height: 880px;
   padding-left: 16px;
   border-radius: 20px;
+  position: absolute;
+  top: 50px;
 }
 
 
