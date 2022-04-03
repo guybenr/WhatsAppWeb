@@ -14,7 +14,7 @@ function OpenScreen(props) {
     const handleShow = () => {
         setIsInvalid(true);
     }
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         var username = document.getElementById('username').value;
@@ -34,28 +34,28 @@ function OpenScreen(props) {
         <main>
             <div className="home" id="main-div">
                 <div className="box shadow-lg p-3 mb-5 bg-body rounded">
-                <label class="login">Login</label>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input className="form-control username form1" id="username" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
-                    </div>
-                    <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" className="form-control password form1" id="exampleInputPassword1" placeholder="Password"></input>
-                    </div>
-                    <div className="mb-3">
-                        <label>Not register?&nbsp;</label>
-                        <Link to='/Register'>Click here</Link>
-                        <label>&nbsp;to register</label>
-                        <Link to='/Temp'>temp</Link>
-                    </div>
-                    <div>
-                    <button onClick={handleSubmit} type="submit" className="btn btn-primary">Log in</button>
-                    </div>
-                </form>
+                    <label class="login">Login</label>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input className="form-control username form1" id="username" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
+                        </div>
+                        <div className="mb-3">
+                            <label for="exampleInputPassword1" className="form-label">Password</label>
+                            <input type="password" className="form-control password form1" id="exampleInputPassword1" placeholder="Password"></input>
+                        </div>
+                        <div className="mb-3">
+                            <label>Not register?&nbsp;</label>
+                            <Link to='/Register'>Click here</Link>
+                            <label>&nbsp;to register</label>
+                            <Link to='/Temp'>temp</Link>
+                        </div>
+                        <div>
+                            <button onClick={handleSubmit} type="submit" className="btn btn-primary">Log in</button>
+                        </div>
+                    </form>
                 </div>
-                <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassage="Invalid username or password" closeButton="Close"/>
+                <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassage="Invalid username or password" closeButton="Close" />
             </div>
         </main>
     );
