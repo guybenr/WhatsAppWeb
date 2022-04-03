@@ -46,7 +46,8 @@ function RegisterScreen(props) {
             setBodyMassage("Please confirm your password.");
             return;
         }
-        if((password.length < 8 || password.length > 20 || !(password.match("^[A-Za-z0-9]+$")))) { // test if password contain only letter and number using regex
+        // test if password contain only letter and number using regex
+        if((password.length < 8 || password.length > 20 || !(password.match("^[A-Za-z0-9]+$")))) {
             setShowError(true);
             setBodyMassage("Your password must be 8-20 characters long," + 
                             " contain letters and numbers, and must not contain spaces, special characters, or emoji.");
