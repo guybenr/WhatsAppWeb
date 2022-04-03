@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UsersList from "../usersList/UsersList";
+import UsersData from "../usersData/UsersData";
 import { Modal, Button } from "react-bootstrap";
 import ErrorModal from "../errorModal/ErrorModal";
 
@@ -14,13 +14,14 @@ function OpenScreen(props) {
     const handleShow = () => {
         setIsInvalid(true);
     }
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         var username = document.getElementById('username').value;
         var password = document.getElementById('exampleInputPassword1').value;
-        for (let i = 0; i < UsersList.length; i++) { // searching for the same username and password. 
-            if (UsersList[i].userName === username && UsersList[i].password === password) {
+        for (let i = 0; i < UsersData.usersList.length; i++) { // searching for the same username and password. 
+            if (UsersData.usersList[i].userName === username && UsersData.usersList[i].password === password) {
+                props.onSignIn(username);
                 navigate('/Chat');
                 return;
             }

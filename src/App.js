@@ -12,15 +12,15 @@ import ChatScreen from './chatScreen/chatScreen';
 
 
 function App() {
-  const [userLoginDetails, setUserLoginDetails] = React.useState({});
+  const [userLoginDetails, setUserLoginDetails] = React.useState('');
 
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/Register' element={<RegisterScreen />}></Route>
-        <Route path='/' element={<OpenScreen />}></Route>
-        <Route path='/Chat' element={<ChatScreen />}></Route>
+        <Route path='/Register' element={<RegisterScreen onSignUp={setUserLoginDetails}/>}></Route>
+        <Route path='/' element={<OpenScreen onSignIn={setUserLoginDetails} />}></Route>
+        <Route path='/Chat' element={<ChatScreen userLoginDetails={userLoginDetails}/>}></Route>
       </Routes>
     </BrowserRouter>
   );
