@@ -31,6 +31,7 @@ function OpenScreen(props) {
 
 
     return (
+<<<<<<< Updated upstream
         <main>
             <div className="home" id="main-div">
                 <div className="box shadow-lg p-3 mb-5 bg-body rounded">
@@ -56,6 +57,13 @@ function OpenScreen(props) {
                     </form>
                 </div>
                 <ErrorModal handleShow={isInvalid} handleClose={handleClose} bodyMassage="Invalid username or password" closeButton="Close" />
+=======
+        <form id = "openScreen">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+>>>>>>> Stashed changes
             </div>
         </main>
     );
