@@ -363,7 +363,6 @@ body {
   vertical-align: baseline;
 }
 
-/*New Message*/
 
 .newMessage {
   padding: 0 !important;
@@ -435,14 +434,13 @@ body {
   height: calc(100% - 160px);
 }
 
-/*Conversation*/
 
 .conversation {
   padding: 0 !important;
   margin: 0 !important;
   height: 100%;
   border-left: 1px solid rgba(0, 0, 0, .1);
-  /*overflow-y: auto;*/
+  overflow-y: auto;
 }
 
 .message {
@@ -522,10 +520,6 @@ body {
   word-wrap: break-word;
 }
 
-
-/*Reply*/
-
-/*block answer down*/
 .reply {
   height: 60px;
   width: 110%;
@@ -665,14 +659,14 @@ body {
     color: rgba(0, 0, 0, .4);
     vertical-align: baseline;
   }
-  /*Conversation*/
+
   .conversation {
     padding: 0 !important;
     margin: 0 !important;
     height: 100%;
-    /*width: 100%;*/
+    width: 100%;
     border-left: 1px solid rgba(0, 0, 0, .08);
-    /*overflow-y: auto;*/
+    overflow-y: auto;
   }
   .message {
     height: calc(100% - 140px);
