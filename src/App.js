@@ -6,7 +6,6 @@ import RegisterScreen from './registerScreen/RegisterScreen'
 import OpenScreen from './openScreen/OpenScreen'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChatScreen from './chatScreen/chatScreen';
-import Temp from './temp/Temp';
 
 
 
@@ -20,9 +19,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/Register' element={<RegisterScreen onSignUp={setUserLoginDetails}/>}></Route>
-        <Route path='/' element={<OpenScreen onSignIn={setUserLoginDetails}/>}></Route>
+        <Route path='/' element={<OpenScreen onSignIn={setUserLoginDetails} />}></Route>
         <Route path='/Chat' element={<ChatScreen userLoginDetails={userLoginDetails}/>}></Route>
-        <Route path='/Temp' element={<Temp />}></Route>
       </Routes>
     </BrowserRouter>
   );
