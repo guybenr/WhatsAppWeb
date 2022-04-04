@@ -38,11 +38,11 @@ function OpenScreen(props) {
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input className="form-control username" id="username" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
+                        <input className="form-control username form1" id="username" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
                     </div>
                     <div className="mb-3">
                         <label for="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" className="form-control password" id="exampleInputPassword1" placeholder="Password"></input>
+                        <input type="password" className="form-control password form1" id="exampleInputPassword1" placeholder="Password"></input>
                     </div>
                     <div className="mb-3">
                         <label>Not register?&nbsp;</label>

@@ -38,7 +38,7 @@ body {
   padding-top: 2px;
 }
 
-.form-control {
+.form1 {
   border-radius: 20px;
   padding-left:35px;
   width: 400px;
@@ -72,17 +72,6 @@ body {
   background: url(card-image.svg) no-repeat 10px;
 }
 
-#photo {
-    font-weight: 500;
-    background-color: rgb(33, 124, 243);
-    color: white;
-    padding: 0.4rem;
-    font-family: sans-serif;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    margin-top: 0.4rem;
-}
-
 
 .boxRegister {
   background-color: rgb(255, 255, 255);
@@ -95,21 +84,42 @@ body {
 }
 
 
+
+
+
+
+
+
+.app {
+  position: relative;
+  overflow: hidden;
+  top: 19px;
+  height: 900px;
+  width: 1300px;
+  margin: auto;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+
 .chatDetails {
   background-color: rgb(255, 255, 255);
-  width: 560px;
-  height: 1200px;
+  width: 460px;
+  height: 900px;
   padding-left: 16px;
   position: fixed;
+}
+
+.searchBox-inner {
+  padding: 10px;
+  background-color: #f6f6f6;
 }
 
 .circleProfile {
   position: absolute;
   top: 10px;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  background-color: black;
+  left: 20px;
+  height: 40px;
+  width: 40px;
 }
 
 img {
@@ -119,47 +129,54 @@ img {
   object-fit: cover;
  }
 
-
-.searchBox {
-  position: absolute;
-  top: 75px;
-}
-
-.me-2 {
-  height: 25px;
-}
-
 .btn-outline-secondary {
   height: 25px;
   border-radius: 25px;
   display: flex;
   align-items:center;
-  justify-content:center;
   font-size: 15px;
 }
 
 .MyName {
-  padding-left: 70px;
-  padding-top: 30px;
-  font-size: large;
+  padding-left: 60px;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 100%;
 }
 
 .addChat {
-  margin: 1px 3% 0px 1%;
-  font: bold;
+  position:relative;
+  left: 330px;
+  top: -20px;
 }
 
-.navbar{
-  right: 5px;
+
+.sideBar-body {
+  padding: 10px !important;
+  height: 75px;
+  margin: 0 !important;
 }
 
-.users-list{
+.avatar-icon img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
   position: relative;
-  top: 100px;
   right: 10px;
 }
 
+.sideBar-name {
+  position: relative;
+  bottom: 35px;
+  left: 50px;
+}
 
-.chat-contact{
-  margin: 50px;
+.time-meta {
+  position: relative;
+  left: 350px;
+  font-size: 12px;
+  padding: 0;
+  position: relative;
+  bottom: 50px;
+  color: rgba(0, 0, 0, .4);
 }

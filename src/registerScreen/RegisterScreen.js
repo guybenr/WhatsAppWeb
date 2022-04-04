@@ -92,28 +92,28 @@ function RegisterScreen(props) {
                 <form onSubmit={handleSubmit}>
                     <div class="mb-3">
                         <label class="form-label">Username</label>
-                        <input class="form-control username" id="username" placeholder="Username"></input>
+                        <input class="form-control username form1" id="username" placeholder="Username"></input>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Nickname</label>
-                        <input id="nick-name" class="form-control username" placeholder="Nick&nbsp;name"></input>
+                        <input id="nick-name" class="form-control username form1" placeholder="Nick&nbsp;name"></input>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">image</label>
-                        <input class="form-control image" placeholder="Image"></input>
+                        <input class="form-control image form1" placeholder="Image"></input>
                         <input type="file" id="upload" hidden />
                         <label id="photo" for="upload">Choose file</label>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control password" id="exampleInputPassword2" placeholder="Password"></input>
+                        <input type="password" class="form-control password form1" id="exampleInputPassword2" placeholder="Password"></input>
                         <div id="passwordHelpBlock" class="form-text">
                             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="Confirm Password"></input>
+                        <input type="password" class="form-control password form1" id="exampleInputPassword1" placeholder="Confirm Password"></input>
                     </div>
                     <div className="mb-3">
                         <label>Already register?&nbsp;</label>
