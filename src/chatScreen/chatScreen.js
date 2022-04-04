@@ -25,13 +25,15 @@ function chatScreen(props) {
                         </nav>
                     </div>
                     <ul class="list-group users-list">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                            Cras justo odio
+                        <a href="/" class="list-group-item list-group-item-action">
+                        Guy
                         </a>
-                        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                        <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+                        <button type="button" class="list-group-item list-group-item-action">
+                            Guy
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action">Guy</button>
+                        <button type="button" class="list-group-item list-group-item-action">Guy</button>
+                        <button type="button" class="list-group-item list-group-item-action">Guy</button>
                     </ul>
                 </div>
             </div>
