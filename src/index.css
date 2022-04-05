@@ -205,8 +205,7 @@ img {
 }
 
 .right-chat{
-  display: flex;
-  width: 50%
+  width: 100vw
 }
 
 .headingChat {
@@ -258,10 +257,10 @@ img {
 
 
 .chat-box{
-  position: relative;
-  bottom: -92vh;
-  right: 27.7vw;
-  width: 80vw;
+  position: absolute;
+  bottom: -3%;
+  left: 29vw;
+  width: 69%;
 }
 
 .toSend {
