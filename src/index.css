@@ -91,9 +91,10 @@ body {
 
 
 .app {
-  position: relative;
+  position: fixed;
   overflow: hidden;
   top: 19px;
+  left: 300px;
   height: 900px;
   width: 1300px;
   margin: auto;
@@ -103,13 +104,25 @@ body {
 
 .chatDetails {
   background-color: rgb(255, 255, 255);
-  width: 460px;
+  width: 450px;
   height: 900px;
   padding-left: 16px;
   position: fixed;
+  border-radius: 5px;
+  border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.heading {
+  position: relative;
+  right: 16px;
+  width: 450px;
+  background-color: rgba(196, 199, 198, 0.463);
 }
 
 .searchBox-inner {
+  position: relative;
+  right: 16px;
+  width: 450px;
   padding: 10px;
   background-color: #f6f6f6;
 }
@@ -117,7 +130,7 @@ body {
 .circleProfile {
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 8px;
   height: 40px;
   width: 40px;
 }
@@ -146,14 +159,19 @@ img {
 
 .addChat {
   position:relative;
-  left: 330px;
-  top: -20px;
+  left: 335px;
+  top: -25px;
 }
 
+.sideBar {
+  position: relative;
+  right: 16px;
+  width: 450px;
+}
 
 .sideBar-body {
   padding: 10px !important;
-  height: 75px;
+  height: 65px;
   margin: 0 !important;
 }
 
@@ -173,10 +191,100 @@ img {
 
 .time-meta {
   position: relative;
-  left: 350px;
+  left: 360px;
   font-size: 12px;
   padding: 0;
   position: relative;
   bottom: 50px;
   color: rgba(0, 0, 0, .4);
+}
+
+
+.headingChat {
+  position: relative;
+  left: 450px;
+  height: 69px;
+  width: 900px;
+  background-color: rgba(196, 199, 198, 0.463);
+
+}
+
+.chatName {
+  position: relative;
+  left: 80px;
+  top: 15px;
+  font-size: 100%;
+  font-weight: bolder;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+}
+
+.chatPhoto {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  height: 50px;
+  width: 50px;
+}
+
+.heading-online {
+  position: relative;
+  top: 40px;
+  left: 25px;
+  font-size: 90%;
+  height: 50px;
+  width: 50px;
+  color: rgba(0, 0, 0, .4);
+}
+
+
+
+.reply {
+  position: relative;
+  top: 20px;
+}
+
+
+
+.chat-box{
+  position: absolute;
+  bottom: -25px;
+  right: -25px;
+  width: 875px;
+}
+
+.toSend {
+  position: relative;
+  padding: 10px;
+  padding-left: 130px;
+  padding-right: 60px;
+  background-color: #f6f6f6;
+  text-align: center;
+  font-size: 20px;
+}
+
+.textBox {
+  border-radius: 50px;
+}
+
+.photo {
+  position: relative;
+  bottom: 40px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.video {
+  position: relative;
+  bottom: 40px;
+  left: 60px;
+  cursor: pointer;
+}
+
+.record {
+  position: relative;
+  bottom: 45px;
+  left: 790px;
+  cursor: pointer;
 }
