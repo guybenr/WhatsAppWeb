@@ -34,10 +34,10 @@ function OpenScreen(props) {
         <main>
             <div className="home" id="main-div">
                 <div className="box shadow-lg p-3 mb-5 bg-body rounded">
-                <label class="login">Login</label>
+                <label className="login">Login</label>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" className="form-label">Username</label>
                         <input className="form-control username form1" id="username" aria-describedby="emailHelp" placeholder="Email /&nbsp;Username"></input>
                     </div>
                     <div className="mb-3">
