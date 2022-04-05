@@ -4,9 +4,10 @@ const UsersData = {
                 { userName: 'hemi', password: 'hemi1', nickName: 'Hemi Hemi', image: '' },],
     
     usersChat: new Map([
-        ['adi', [{nameContact: '', massages: [{massage: '', isRecived: true}]}]],
-        ['guy', [{nameContact: '', massages: [{massage: '', isRecived: true}]}]],
-        ['hemi', [{nameContact: '', massages: [{massage: '', isRecived: true}]}]]
+        ['adi', [{nameContact: 'Maor Shvartz', massages: [{massage: '', isRecived: true, time: "18:00"}]},
+                 {nameContact: 'Yehuda Kolgate', massages: [{massage: '', isRecived: true, time: "18:00"}]}]],
+        ['guy', [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]],
+        ['hemi', [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]]
     ])};
 
 export default UsersData;

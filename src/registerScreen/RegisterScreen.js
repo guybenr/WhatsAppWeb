@@ -79,7 +79,7 @@ function RegisterScreen(props) {
             image: image
         });
         UsersData.usersChat.set(
-            userName, [{nameContact: '', massages: [{massage: '', isRecived: true}]}]
+            userName, [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]
         );
         props.onSignUp(userName);
         navigate('/Chat');
