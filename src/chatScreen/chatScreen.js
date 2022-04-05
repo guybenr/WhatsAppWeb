@@ -4,10 +4,15 @@ import ErrorModal from "../errorModal/ErrorModal";
 import UsersData from "../usersData/UsersData";
 import { Modal, Button } from "react-bootstrap";
 import ContactItem from "../contactItem/ContactItem";
+import Search from "../search/Search";
+import ContactListResult from "../contactsListResult/ContactListResult";
 
-function chatScreen(props) {
+function ChatScreen(props) {
 
     const [toAddContact, setToAddContact] = React.useState(false);
+    const [contacts, setContacts] = React.useState(UsersData.usersChat.get(props.userLoginDetails).map((x) => x));
+
+
     const contactName = React.createRef('');
 
     const showAddContactModal = (event) => {
@@ -16,7 +21,7 @@ function chatScreen(props) {
     }
 
     // function adding the contact to the database
-    const handleAddContact = (event) => {
+    const addContact = (event) => {
         event.preventDefault();
         if (contactName.current.value === '') { // validation that the input isnt empty
             return;
@@ -24,14 +29,17 @@ function chatScreen(props) {
         let userName = props.userLoginDetails; 
         // adding the contact to the database
         UsersData.usersChat.get(userName).push(
-            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }] }
+            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }]}
+        );
+        contacts.push(
+            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }]}
         );
         setToAddContact(false);
     }
 
-    const contactsList = UsersData.usersChat.get("adi").map((contact, key) => {
-        return <ContactItem contactName={contact.nameContact} sentTime={contact.massages[0].time} />
-    });
+    const doSearch = (query) => {
+        setContacts(UsersData.usersChat.get(props.userLoginDetails).filter((contact) => contact.nameContact.includes(query)));
+    }
 
     return (
         <div class="app">
@@ -46,15 +54,8 @@ function chatScreen(props) {
                                 <button class="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
                             </div>
                         </div>
-                        <div class="searchBox">
-                            <div class="searchBox-inner">
-                                <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search"></input>
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <div className="sideBar">
-                            {contactsList}
-                        </div>
+                        <Search setSearchQuery={doSearch}/>
+                        <ContactListResult contactsList={contacts} />
                     </div>
                 </div>
                 <div className="sideTwo">
@@ -96,11 +97,11 @@ function chatScreen(props) {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button onClick={handleAddContact} variant="primary">Add</Button>
+                    <Button onClick={addContact} variant="primary">Add</Button>
                 </Modal.Footer>
             </Modal>
         </div>
     );
 }
 
-export default chatScreen;
+export default ChatScreen;
