@@ -1,7 +1,8 @@
 body {
   /* background-color: rgba(245, 240, 240, 0.027); */
   background-image: url("back1.jpeg");
-  height: 1200px; /* You must set a specified height */
+  overflow: auto;
+  height: 1000px; 
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
@@ -91,22 +92,25 @@ body {
 
 
 .app {
+  display: grid;
+  grid-gap: 20px;
   position: fixed;
   overflow: hidden;
-  top: 19px;
-  left: 300px;
-  height: 900px;
-  width: 1300px;
+  left: 3.5%;
+  height: 100%;
+  width: 93%;
   margin: auto;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
 }
 
 
 .chatDetails {
+  overflow: auto;
+  overflow-x: hidden;
   background-color: rgb(255, 255, 255);
-  width: 450px;
-  height: 900px;
-  padding-left: 16px;
+  width: 29.4%;
+  height: 100%;
+  padding-left: 1.0%;
   position: fixed;
   border-radius: 5px;
   border-right: 1px solid rgba(0, 0, 0, .1);
@@ -121,8 +125,9 @@ body {
 
 .searchBox-inner {
   position: relative;
-  right: 16px;
-  width: 450px;
+  display: flex;
+  right: 3.5%;
+  width: 104%;
   padding: 10px;
   background-color: #f6f6f6;
 }
@@ -165,13 +170,13 @@ img {
 
 .sideBar {
   position: relative;
-  right: 16px;
-  width: 450px;
+  right: 3.5%;
+  width: 104%;
 }
 
 .sideBar-body {
   padding: 10px !important;
-  height: 65px;
+  height: 10vh;
   margin: 0 !important;
 }
 
@@ -199,12 +204,17 @@ img {
   color: rgba(0, 0, 0, .4);
 }
 
+.right-chat{
+  display: flex;
+  width: 50%
+}
 
 .headingChat {
   position: relative;
+  display: flex;
   left: 450px;
   height: 69px;
-  width: 900px;
+  width: 100%;
   background-color: rgba(196, 199, 198, 0.463);
 
 }
@@ -248,14 +258,16 @@ img {
 
 
 .chat-box{
-  position: absolute;
-  bottom: -25px;
-  right: -25px;
-  width: 875px;
+  position: relative;
+  bottom: -92vh;
+  right: 27.7vw;
+  width: 80vw;
 }
 
 .toSend {
+  display: flex;
   position: relative;
+  width: 100%;
   padding: 10px;
   padding-left: 130px;
   padding-right: 60px;

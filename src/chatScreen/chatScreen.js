@@ -43,8 +43,6 @@ function ChatScreen(props) {
 
     return (
         <div class="app">
-            <div class="row">
-                <div class="col-5 sm">
                     <div className="chatDetails">
                         <div class="heading">
                             <div className="circleProfile">
@@ -57,9 +55,7 @@ function ChatScreen(props) {
                         <Search setSearchQuery={doSearch}/>
                         <ContactListResult contactsList={contacts} />
                     </div>
-                </div>
-                <div className="sideTwo">
-                    <div class="col">
+                <div className="right-chat">
                         <div class="headingChat">
                             <div className="chatPhoto">
                                 <img src="https://loremflickr.com/400/400"></img>
@@ -67,7 +63,6 @@ function ChatScreen(props) {
                             <a className="chatName">Adi Aviv</a>
                             <span class="heading-online">Online</span>
                         </div>
-                    </div>
                     <div class="chat-box">
                         <div class="toSend">
                             <input id="searchText" type="text" class="form-control textBox" name="searchText"></input>
@@ -86,7 +81,6 @@ function ChatScreen(props) {
                         </svg>
                     </div>
                 </div>
-            </div>
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add new contact</Modal.Title>
