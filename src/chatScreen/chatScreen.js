@@ -1,9 +1,38 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorModal from "../errorModal/ErrorModal";
-
+import UsersData from "../usersData/UsersData";
+import { Modal, Button } from "react-bootstrap";
+import ContactItem from "../contactItem/ContactItem";
 
 function chatScreen(props) {
+
+    const [toAddContact, setToAddContact] = React.useState(false);
+    const contactName = React.createRef('');
+
+    const showAddContactModal = (event) => {
+        event.preventDefault();
+        setToAddContact(true);
+    }
+
+    // function adding the contact to the database
+    const handleAddContact = (event) => {
+        event.preventDefault();
+        if (contactName.current.value === '') { // validation that the input isnt empty
+            return;
+        }
+        let userName = props.userLoginDetails; 
+        // adding the contact to the database
+        UsersData.usersChat.get(userName).push(
+            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }] }
+        );
+        setToAddContact(false);
+    }
+
+    const contactsList = UsersData.usersChat.get("adi").map((contact, key) => {
+        return <ContactItem contactName={contact.nameContact} sentTime={contact.massages[0].time} />
+    });
+
     return (
         <div class="app">
             <div class="row">
@@ -14,7 +43,7 @@ function chatScreen(props) {
                                 <img src="https://loremflickr.com/400/400"></img>
                             </div>
                             <div className="MyName">Adi Aviv
-                                <button class="addChat btn btn-outline-secondary" type="submit" >+</button>
+                                <button class="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
                             </div>
                         </div>
                         <div class="searchBox">
@@ -24,38 +53,7 @@ function chatScreen(props) {
                             </div>
                         </div>
                         <div className="sideBar">
-                            <ul class="list-group users-list">
-                                <button type="button" class="list-group-item list-group-item-action">
-                                    <div class="sideBar-body">
-                                        <div class="avatar-icon">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png"></img>
-                                        </div>
-                                        <div class="sideBar-name">John Doe
-                                        </div>
-                                        <span class="time-meta">18:19</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="list-group-item list-group-item-action">
-                                    <div class="sideBar-body">
-                                        <div class="avatar-icon">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png"></img>
-                                        </div>
-                                        <div class="sideBar-name">John Doe
-                                        </div>
-                                        <span class="time-meta">18:19</span>
-                                    </div>
-                                </button>
-                                <button type="button" class="list-group-item list-group-item-action">
-                                    <div class="sideBar-body">
-                                        <div class="avatar-icon">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png"></img>
-                                        </div>
-                                        <div class="sideBar-name">John Doe
-                                        </div>
-                                        <span class="time-meta">18:19</span>
-                                    </div>
-                                </button>
-                            </ul>
+                            {contactsList}
                         </div>
                     </div>
                 </div>
@@ -87,8 +85,20 @@ function chatScreen(props) {
                         </svg>
                     </div>
                 </div>
-
             </div>
+            <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add new contact</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <input class="form-control me-2" type="search" placeholder="Contact's Identifier" aria-label="Search" ref={contactName}></input>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button onClick={handleAddContact} variant="primary">Add</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }
