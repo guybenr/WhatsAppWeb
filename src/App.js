@@ -5,7 +5,7 @@ import './index.css';
 import RegisterScreen from './registerScreen/RegisterScreen'
 import OpenScreen from './openScreen/OpenScreen'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ChatScreen from './chatScreen/ChatScreen';
+import ChatScreen from './chatScreen/chatScreen';
 import Temp from './temp/Temp'
 
 

@@ -19,8 +19,8 @@ function RegisterScreen(props) {
         var confirmPass = document.getElementById('exampleInputPassword1').value;
         var fileInput = document.getElementById('upload');
         var image = fileInput.files[0];
-        var imageType = /image.*/;
 
+        
         // input validation
         if (userName === '') {
             setShowError(true);
@@ -32,12 +32,12 @@ function RegisterScreen(props) {
             setBodyMassage("Please enter nickname.");
             return;
         }
-        //if the file is not in image foramt (png , svg .. )
-        if (!(image.type.match(imageType))) {
+        if (fileInput.value === '') {
             setShowError(true);
-            setBodyMassage("File not support.");
+            setBodyMassage("Please enter photo.");
             return;
         }
+        fileInput.src = URL.createObjectURL(image);
         if (password === '') {
             setShowError(true);
             setBodyMassage("Please enter password.");
@@ -76,7 +76,7 @@ function RegisterScreen(props) {
             userName: userName,
             password: password,
             nickName: nickName,
-            image: image
+            image: fileInput
         });
         UsersData.usersChat.set(
             userName, [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]
@@ -101,8 +101,8 @@ function RegisterScreen(props) {
                     <div class="mb-3">
                         <label class="form-label">image</label>
                         <input class="form-control image form1" placeholder="Image"></input>
-                        <input type="file" id="upload" hidden />
-                        <label id="photo" for="upload">Choose file</label>
+                        <input type="file" id="upload" accept="image/*" hidden />
+                        <label class = "addPhoto btn btn-primary" id="photo" for="upload">Choose file</label>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
