@@ -21,6 +21,7 @@ function ChatScreen(props) {
     }
 
     // function adding the contact to the database
+
     const addContact = (event) => {
         event.preventDefault();
         if (contactName.current.value === '') { // validation that the input isnt empty
@@ -46,9 +47,9 @@ function ChatScreen(props) {
             <div className="chatDetails">
                 <div class="heading">
                     <div className="circleProfile">
-                        <img src="https://loremflickr.com/400/400"></img>
+                        <img src={UsersData.usersPhoto.get(props.userLoginDetails)}></img>
                     </div>
-                    <div className="MyName">Adi Aviv
+                    <div className="MyName">{props.userLoginDetails}
                         <button class="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
                     </div>
                 </div>
