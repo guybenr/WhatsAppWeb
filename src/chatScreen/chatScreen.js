@@ -33,10 +33,10 @@ function ChatScreen(props) {
         let userName = props.userLoginDetails;
         // adding the contact to the database
         UsersData.usersChat.get(userName).push(
-            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }] }
+            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "" }] }
         );
         contacts.push(
-            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "18:19" }] }
+            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "" }] }
         );
         setToAddContact(false);
     }
@@ -82,7 +82,7 @@ function ChatScreen(props) {
                 <Search setSearchQuery={doSearch} />
                 <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat}/>
             </div>
-            {(detailsChat != "") && <Chat chatName={detailsChat} chatImage={chatImage}/>}
+            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage}/>}
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add new contact</Modal.Title>

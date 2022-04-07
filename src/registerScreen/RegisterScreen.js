@@ -80,7 +80,7 @@ function RegisterScreen(props) {
             image: fileInput.src
         });
         UsersData.usersChat.set(
-            userName, [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]
+            userName, []
         );
         props.onSignUp(userName);
         navigate('/Chat');
