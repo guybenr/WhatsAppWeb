@@ -1,7 +1,7 @@
 function ContactItem(props) {
     return (
         <ul class="list-group users-list">
-            <button type="button" class="list-group-item list-group-item-action">
+            <button type="button" class="list-group-item list-group-item-action" onClick={props.setDetails(props.contactName)}>
                 <div class="sideBar-body">
                     <div class="avatar-icon">
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png"></img>

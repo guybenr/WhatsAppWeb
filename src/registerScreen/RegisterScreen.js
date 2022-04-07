@@ -37,6 +37,7 @@ function RegisterScreen(props) {
             setBodyMassage("Please enter photo.");
             return;
         }
+        //create temporary URL for photo
         fileInput.src = URL.createObjectURL(image);
         if (password === '') {
             setShowError(true);
@@ -76,7 +77,7 @@ function RegisterScreen(props) {
             userName: userName,
             password: password,
             nickName: nickName,
-            image: fileInput
+            image: fileInput.src
         });
         UsersData.usersChat.set(
             userName, [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]
