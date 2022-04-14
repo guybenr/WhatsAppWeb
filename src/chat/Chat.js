@@ -4,13 +4,14 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { render } from "react-dom";
 import useRecorder from "./useRecorder";
+import UsersData from "../usersData/UsersData";
 
 
 function Chat(props) {
     let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
     const [records, setRecord] = React.useState(false);
-    const chatBoxMassage = React.createRef('');
-
+    const [reRender, setReRender] = React.useState(false);
+    const toSendMassage = React.createRef('');
     //open window for record
     const showRecordModal = (event) => {
         event.preventDefault();
@@ -24,6 +25,30 @@ function Chat(props) {
         return <></>
     });
 
+
+
+    //function handeling sending massage to a contact
+    const sendMassage = (event) => {
+        if(event.key !== "Enter" || toSendMassage.current.value === "")
+            return;
+        event.preventDefault();
+        let currTime = new Date();
+        currTime = currTime.getHours() + ":" + currTime.getMinutes();
+        let currMassage = toSendMassage.current.value;
+        props.massages.push({massage: currMassage, isRecived: false, time: currTime});
+        let contactData = UsersData.usersChat.get(props.chatName);
+        let a = contactData.find(e => e.nameContact===props.senderName);
+        //this condition checks wether the contact has already chat with the current username
+        if(a === undefined) { 
+            contactData.push({nameContact: props.senderName, massages: 
+                            [{massage: currMassage, isRecived: true, time: currTime}]});
+        } else {
+            a.massages.push({massage: currMassage, isRecived: true, time: currTime})
+        }
+        
+        toSendMassage.current.value="";
+        setReRender(!reRender);
+    }
 
     return (
         <div className="right-chat">
@@ -45,7 +70,7 @@ function Chat(props) {
                     <input type="file" id="upload" accept="video/*" hidden />
                     <label class = "video btn" id="photo" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
-                    <input id="searchText" type="text" class="form-control textBox" name="searchText"></input>
+                    <input onKeyPress={sendMassage} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
