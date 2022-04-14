@@ -31,8 +31,8 @@ function ChatScreen(props) {
             return;
         }
         let userName = props.userLoginDetails;
-        // adding the contact to the database
-        if (UsersData.usersChat.has(contactName.current.value)) { // check if the contact exist
+        // adding the contact to the database and check if the contact exist
+        if (UsersData.usersChat.has(contactName.current.value) && !UsersData.usersChat.get(userName).some(e => e.nameContact===contactName.current.value)) {
             UsersData.usersChat.get(userName).push(
                 { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
             );
@@ -40,6 +40,9 @@ function ChatScreen(props) {
                 { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
             );
             setToAddContact(false);
+        }
+        else {
+            alert("Contact Identifier wrong")
         }
     }
 
