@@ -288,8 +288,8 @@ img {
   position: absolute;
   background-image: url(camera-fill.svg);
   background-size: cover;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 20px;
   left: 10px;
 }
 
@@ -297,8 +297,8 @@ img {
   position: absolute;
   background-image: url(camera-video-fill.svg);
   background-size: cover;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 20px;
   left: 4.5%;
 }
 
@@ -306,9 +306,10 @@ img {
   position: absolute;
   background-image: url(mic.svg);
   background-size: cover;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 20px;
   left: 8%;
+  border: 0;
 }
 
 .messages {
@@ -359,6 +360,32 @@ img {
   font-size: large;
 }
 
+.headingRecord {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: #d8dfdfdc;
+  background-size: cover;
+  display: inline-block;
+  text-align: center;
+}
 
+.startRecord {
+  position: relative;
+  top: 30px;
+  background-color: #d8dfdfdc;
+  background-size: cover;
+}
 
+.stoptRecord {
+  background-color: #d8dfdfdc;
+  background-size: cover;
+}
 
+.sendRecord {
+  background-color: #d8dfdfdc;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+}

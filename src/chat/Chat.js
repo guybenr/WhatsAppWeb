@@ -7,7 +7,7 @@ import useRecorder from "./useRecorder";
 
 
 function Chat(props) {
-
+    let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
     const [records, setRecord] = React.useState(false);
     const chatBoxMassage = React.createRef('');
 
@@ -40,25 +40,33 @@ function Chat(props) {
 
             <div class="chat-box">
                 <div class="toSend">
-                    <button className="photo"></button>
-                    <button className="video"></button>
+                    <input type="file" id="upload" accept="image/*" hidden />
+                    <label class = "photo btn" id="photo" for="upload"></label>
+                    <input type="file" id="upload" accept="video/*" hidden />
+                    <label class = "video btn" id="photo" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
                     <input id="searchText" type="text" class="form-control textBox" name="searchText"></input>
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
             <Modal show={records} onHide={() => setRecord(false)}>
+                <Modal.Header className="headingRecord">
+                    <div>Record</div>
+                </Modal.Header>
                 <Modal.Body>
                     <div>
                         <audio src={audioURL} controls />
-                        <button onClick={startRecording} disabled={isRecording}>
+                        <button onClick={startRecording} disabled={isRecording} className="startRecord">
                             start recording
                         </button>
-                        <button onClick={stopRecording} disabled={!isRecording}>
+                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
                             stop recording
                         </button>
                     </div>
                 </Modal.Body>
+                <Modal.Footer className="sendRecord" type="button">
+                send
+                </Modal.Footer>
             </Modal>
         </div>
     );
