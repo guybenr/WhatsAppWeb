@@ -286,23 +286,29 @@ img {
 
 .photo {
   position: absolute;
-  cursor: pointer;
-  top: 18px;
+  background-image: url(camera-fill.svg);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
   left: 10px;
 }
 
 .video {
   position: absolute;
-  cursor: pointer;
-  top: 18px;
-  left: 50px;
+  background-image: url(camera-video-fill.svg);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  left: 4.5%;
 }
 
 .record {
   position: absolute;
-  cursor: pointer;
-  top: 18px;
-  left: 90px;
+  background-image: url(mic.svg);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  left: 8%;
 }
 
 .messages {
