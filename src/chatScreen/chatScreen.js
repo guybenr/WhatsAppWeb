@@ -88,7 +88,7 @@ function ChatScreen(props) {
                 <Search setSearchQuery={doSearch} />
                 <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat} />
             </div>
-            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage} senderName={props.userLoginDetails}
+            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage}
                 massages={UsersData.usersChat.get(props.userLoginDetails).find(element => element.nameContact === detailsChat).massages} />}
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>

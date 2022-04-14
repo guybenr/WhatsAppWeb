@@ -4,7 +4,7 @@ const UsersData = {
                 { userName: 'hemi', password: 'hemi1', nickName: 'Hemi Hemi', image: '' },],
     
     usersChat: new Map([
-        ['adi', [{nameContact: 'adi', massages: [{massage: 'hello my friend', isRecived: true, time: "18:00"},
+        ['adi', [{nameContact: 'guy', massages: [{massage: 'hello my friend', isRecived: true, time: "18:00"},
                                                  {massage: 'hello adi aviv', isRecived: false, time: "18:00"}]},
                  {nameContact: 'hemi', massages: [{massage: '', isRecived: true, time: "18:00"}]}]],
         ['guy', [{nameContact: '', massages: [{massage: '', isRecived: true, time: "18:00"}]}]],

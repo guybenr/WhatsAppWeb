@@ -25,29 +25,39 @@ function Chat(props) {
         return <></>
     });
 
-
-
-    //function handeling sending massage to a contact
-    const sendMassage = (event) => {
-        if(event.key !== "Enter" || toSendMassage.current.value === "")
-            return;
+    const sendRecord = (event) => {
         event.preventDefault();
+        let a = <audio src={audioURL} controls />;
+        let currTime = new Date();
+        currTime = currTime.getHours() + ":" + currTime.getMinutes();
+        let currMassage = toSendMassage.current.value;
+        props.massages.push({massage: a, isRecived: false, time: currTime});
+        setReRender(!reRender);
+    }
+
+    const sendMassage = () => { // function send the massage to the contact
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         let currMassage = toSendMassage.current.value;
         props.massages.push({massage: currMassage, isRecived: false, time: currTime});
-        let contactData = UsersData.usersChat.get(props.chatName);
-        let a = contactData.find(e => e.nameContact===props.senderName);
-        //this condition checks wether the contact has already chat with the current username
-        if(a === undefined) { 
-            contactData.push({nameContact: props.senderName, massages: 
-                            [{massage: currMassage, isRecived: true, time: currTime}]});
-        } else {
-            a.massages.push({massage: currMassage, isRecived: true, time: currTime})
-        }
-        
         toSendMassage.current.value="";
         setReRender(!reRender);
+    }
+    //function handeling sending massage to a contact
+    const handlePressingKey = (event) => {
+        if(event.key !== "Enter" || toSendMassage.current.value === "")
+            return;
+        event.preventDefault();
+        sendMassage();
+        // let contactData = UsersData.usersChat.get(props.chatName);
+        // let a = contactData.find(e => e.nameContact===props.senderName);
+        // //this condition checks wether the contact has already chat with the current username
+        // if(a === undefined) { 
+        //     contactData.push({nameContact: props.senderName, massages: 
+        //                     [{massage: currMassage, isRecived: true, time: currTime}]});
+        // } else {
+        //     a.massages.push({massage: currMassage, isRecived: true, time: currTime})
+        // }
     }
 
     return (
@@ -70,7 +80,7 @@ function Chat(props) {
                     <input type="file" id="upload" accept="video/*" hidden />
                     <label class = "video btn" id="photo" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
-                    <input onKeyPress={sendMassage} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
+                    <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
@@ -89,7 +99,7 @@ function Chat(props) {
                         </button>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="sendRecord" type="button">
+                <Modal.Footer className="sendRecord" type="button" onClick={sendRecord}>
                 send
                 </Modal.Footer>
             </Modal>
