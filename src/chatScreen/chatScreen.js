@@ -12,8 +12,8 @@ function ChatScreen(props) {
 
     const [toAddContact, setToAddContact] = React.useState(false);
     const [contacts, setContacts] = React.useState(UsersData.usersChat.get(props.userLoginDetails).map((x) => x));
-    const [showChat , setshowChat] = React.useState(false);
-    const [detailsChat , setDetailsChat] = React.useState("");
+    const [showChat, setshowChat] = React.useState(false);
+    const [detailsChat, setDetailsChat] = React.useState("");
 
 
     const contactName = React.createRef('');
@@ -32,13 +32,15 @@ function ChatScreen(props) {
         }
         let userName = props.userLoginDetails;
         // adding the contact to the database
-        UsersData.usersChat.get(userName).push(
-            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "" }] }
-        );
-        contacts.push(
-            { nameContact: contactName.current.value, massages: [{ massage: '', isRecived: true, time: "" }] }
-        );
-        setToAddContact(false);
+        if (UsersData.usersChat.has(contactName.current.value)) { // check if the contact exist
+            UsersData.usersChat.get(userName).push(
+                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
+            );
+            contacts.push(
+                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
+            );
+            setToAddContact(false);
+        }
     }
 
     const doSearch = (query) => {
@@ -50,7 +52,7 @@ function ChatScreen(props) {
     const showOpenChat = (event) => {
         event.preventDefault();
         setshowChat(true);
-        for (let i = 0 ; i < UsersData.usersList.length ; ++i) {
+        for (let i = 0; i < UsersData.usersList.length; ++i) {
             if (UsersData.usersList[i].userName === detailsChat) {
                 chatImage = UsersData.usersList[i].image;
                 break;
@@ -60,13 +62,14 @@ function ChatScreen(props) {
 
     var name;
     var image;
-    for (let i = 0 ; i < UsersData.usersList.length ; ++i) {
+    for (let i = 0; i < UsersData.usersList.length; ++i) {
         if (UsersData.usersList[i].userName === props.userLoginDetails) {
             name = UsersData.usersList[i].nickName;
             image = UsersData.usersList[i].image;
             break;
         }
     }
+
 
     return (
         <div class="app">
@@ -80,9 +83,10 @@ function ChatScreen(props) {
                     </div>
                 </div>
                 <Search setSearchQuery={doSearch} />
-                <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat}/>
+                <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat} />
             </div>
-            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage}/>}
+            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage}
+                massages={UsersData.usersChat.get(props.userLoginDetails).find(element => element.nameContact === detailsChat).massages} />}
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add new contact</Modal.Title>

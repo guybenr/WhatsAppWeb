@@ -1,6 +1,18 @@
 import { useRef } from "react";
+import Massage from "../massage/Massage";
+import React from "react";
 
 function Chat(props) {
+
+    const chatBoxMassage = React.createRef('');
+    
+    //function returns all of the Massage Components that are in the database
+    const massagesList = props.massages.map((massage, key) => {
+        if(massage.massage !== "")
+            return <Massage content={massage.massage} isRecived={massage.isRecived}/> 
+        return <></>    
+    });
+
 
     return (
         <div className="right-chat">
@@ -12,41 +24,7 @@ function Chat(props) {
                 <span class="heading-online">Online</span>
             </div>
             <div className="temp">
-                <div className="messages reciver">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages sender">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages reciver">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages sender">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages reciver">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages sender">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
-                <div className="messages reciver">
-                    <div class="message-text">
-                        gjfhglfhghflhfjh hhghkg hgkjg jhjfl jdflhdjf jdfhjdh fdhljfhd jdlhsfhhdf  Hi, what are you doing?!
-                    </div>
-                </div>
+                    {massagesList}
             </div>
             
             <div class="chat-box">
