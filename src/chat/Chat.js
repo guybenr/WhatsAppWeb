@@ -32,7 +32,7 @@ function Chat(props) {
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         let currMassage = toSendMassage.current.value;
         props.massages.push({massage: a, isRecived: false, time: currTime});
-        setReRender(!reRender);
+        setRecord(false);
     }
 
     const sendMassage = () => { // function send the massage to the contact
