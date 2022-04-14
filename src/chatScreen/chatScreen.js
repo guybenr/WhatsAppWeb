@@ -51,16 +51,10 @@ function ChatScreen(props) {
     }
 
 
-    var chatImage;
+    let Image_chat;
     const showOpenChat = (event) => {
         event.preventDefault();
         setshowChat(true);
-        for (let i = 0; i < UsersData.usersList.length; ++i) {
-            if (UsersData.usersList[i].userName === detailsChat) {
-                chatImage = UsersData.usersList[i].image;
-                break;
-            }
-        }
     }
 
     var name;
@@ -88,7 +82,7 @@ function ChatScreen(props) {
                 <Search setSearchQuery={doSearch} />
                 <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat} />
             </div>
-            {(detailsChat !== "") && <Chat chatName={detailsChat} chatImage={chatImage}
+            {(detailsChat !== "") && <Chat chatName={detailsChat}
                 massages={UsersData.usersChat.get(props.userLoginDetails).find(element => element.nameContact === detailsChat).massages} />}
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>

@@ -90,11 +90,6 @@ body {
   right: 40px;
 }
 
-
-
-
-
-
 .app {
   display: grid;
   grid-gap: 20px;
@@ -106,8 +101,6 @@ body {
   top: 40px;
   margin: auto;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
-  overflow: scroll !important;
-
 }
 
 
@@ -198,7 +191,9 @@ img {
 .sideBar-name {
   position: relative;
   bottom: 35px;
-  left: 50px;
+  left: 15%;
+  font-weight: normal;
+  font-size: 120%;
 }
 
 .time-meta {
@@ -212,17 +207,25 @@ img {
 }
 
 .right-chat{
-  width: 100vw
+  width: 100vw;
 }
+
+.allMessages {
+  position: absolute;
+  left: 34.5%;
+  width: 55vw;
+  height: 85%;
+  overflow-y: scroll !important;
+}
+
 
 .headingChat {
   position: relative;
-  display: flex;
   left: 29%;
   height: 69px;
   width: 100%;
   background-color: rgba(196, 199, 198, 0.463);
-
+  padding: 0;
 }
 
 .chatName {
@@ -247,7 +250,7 @@ img {
 .heading-online {
   position: relative;
   top: 40px;
-  left: 25px;
+  left: 45px;
   font-size: 90%;
   height: 50px;
   width: 50px;
@@ -314,14 +317,18 @@ img {
 
 .messages {
 	position: relative;
-	width: 20%;
-  margin: 30px auto;
+	width: 31%;
+  margin: 40px auto;
   border-radius: 8px;
   background: #00bfb6;
   color: #fff;
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
   right: 9%;
+}
+
+.reciver {
+  right: 30%;
 }
 
 .reciver:after {
@@ -338,7 +345,7 @@ img {
 }
 
 .sender {
-  left: 22%;
+  left: 30%;
   background: #d8dfdfdc;
   color: rgb(0, 0, 0);
 }

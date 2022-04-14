@@ -32,7 +32,7 @@ function Chat(props) {
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         let currMassage = toSendMassage.current.value;
         props.massages.push({massage: a, isRecived: false, time: currTime});
-        setReRender(!reRender);
+        setReRender(false);
     }
 
     const sendMassage = () => { // function send the massage to the contact
@@ -60,16 +60,25 @@ function Chat(props) {
         // }
     }
 
+    var ImageChat;
+    for (let i = 0; i < UsersData.usersList.length; ++i) {
+        if (UsersData.usersList[i].userName === props.chatName) {
+            ImageChat = UsersData.usersList[i].image;
+            break;
+        }
+    }
+
+
     return (
         <div className="right-chat">
             <div class="headingChat">
                 <div className="chatPhoto">
-                    <img src={props.chatImage}></img>
+                    <img src={ImageChat}></img>
                 </div>
                 <a className="chatName">{props.chatName}</a>
                 <span class="heading-online">Online</span>
             </div>
-            <div className="temp">
+            <div className="allMessages">
                 {massagesList}
             </div>
 
