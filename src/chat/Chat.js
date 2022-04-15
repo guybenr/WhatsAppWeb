@@ -27,7 +27,7 @@ function Chat(props) {
 
     const sendRecord = (event) => {
         event.preventDefault();
-        let a = <audio src={audioURL} controls />;
+        let a = <audio src={audioURL} controls className="messagesRecord" />;
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         let currMassage = toSendMassage.current.value;

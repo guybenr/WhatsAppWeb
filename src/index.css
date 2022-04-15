@@ -396,3 +396,8 @@ img {
   display: inline-block;
   text-align: center;
 }
+
+.messagesRecord {
+  position: relative !important;
+  width: 100%;
+}
