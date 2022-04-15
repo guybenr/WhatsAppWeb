@@ -27,12 +27,11 @@ function Chat(props) {
 
     const sendRecord = (event) => {
         event.preventDefault();
-        let a = <audio src={audioURL} controls className="messagesRecord" />;
+        let recordContent = <audio src={audioURL} controls className="messagesRecord" />;
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
-        let currMassage = toSendMassage.current.value;
-        props.massages.push({ massage: a, isRecived: false, time: currTime });
-        setReRender(false);
+        props.massages.push({ massage: recordContent, isRecived: false, time: currTime });
+        setRecord(false);
     }
 
     const sendMassage = () => { // function send the massage to the contact
@@ -69,6 +68,16 @@ function Chat(props) {
     }
 
 
+    const sendFile = (event) => {
+        let massageContent = <div>
+            <img className="imageMassage" src={URL.createObjectURL(event.target.files[0])} />
+        </div>;
+        let currTime = new Date();
+        currTime = currTime.getHours() + ":" + currTime.getMinutes();
+        props.massages.push({ massage: massageContent, isRecived: false, time: currTime });
+        setReRender(!reRender);
+    }
+
     return (
         <div className="right-chat">
             <div class="headingChat">
@@ -90,38 +99,38 @@ function Chat(props) {
                 </div>
             </div>
 
-                <div class="chat-box">
-                    <div class="toSend">
-                        <input type="file" id="upload" accept="image/*" hidden />
-                        <label class="photo btn" id="photo" for="upload"></label>
-                        <input type="file" id="upload" accept="video/*" hidden />
-                        <label class="video btn" id="photo" for="upload"></label>
-                        <button className="record" onClick={showRecordModal}></button>
-                        <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    </div>
+            <div class="chat-box">
+                <div class="toSend">
+                    <input onChange={sendFile} type="file" id="upload" accept="image/*" hidden />
+                    <label class="photo btn" id="photo" for="upload"></label>
+                    <input onChange={sendFile} type="file" id="upload" accept="video/*" hidden />
+                    <label class="video btn" id="photo" for="upload"></label>
+                    <button className="record" onClick={showRecordModal}></button>
+                    <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
-                <Modal show={records} onHide={() => setRecord(false)}>
-                    <Modal.Header className="headingRecord">
-                        <div>Record</div>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <div>
-                            <audio src={audioURL} controls />
-                            <button onClick={startRecording} disabled={isRecording} className="startRecord">
-                                start recording
-                            </button>
-                            <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
-                                stop recording
-                            </button>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer className="sendRecord" type="button" onClick={sendRecord}>
-                        send
-                    </Modal.Footer>
-                </Modal>
             </div>
-            );
+            <Modal show={records} onHide={() => setRecord(false)}>
+                <Modal.Header className="headingRecord">
+                    <div>Record</div>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>
+                        <audio src={audioURL} controls />
+                        <button onClick={startRecording} disabled={isRecording} className="startRecord">
+                            start recording
+                        </button>
+                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
+                            stop recording
+                        </button>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer className="sendRecord" type="button" onClick={sendRecord}>
+                    send
+                </Modal.Footer>
+            </Modal>
+        </div>
+    );
 }
 
-            export default Chat;
+export default Chat;
