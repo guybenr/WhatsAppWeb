@@ -318,17 +318,17 @@ body {
 .messages {
 	position: relative;
 	width: 31%;
-  margin: 40px auto;
   border-radius: 8px;
   background: #00bfb6;
   color: #fff;
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  right: 9%;
+  margin-bottom: 2%;
 }
 
 .reciver {
-  right: 30%;
+  left: 5%;
+  margin-top: 3%;
 }
 
 .reciver:after {
@@ -345,7 +345,8 @@ body {
 }
 
 .sender {
-  left: 30%;
+  left: 65%;
+  margin-top: 3%;
   background: #d8dfdfdc;
   color: rgb(0, 0, 0);
 }
@@ -397,9 +398,19 @@ body {
   text-align: center;
 }
 
-.messagesRecord {
+.messagesRecord-reciver {
   position: relative !important;
-  width: 100%;
+  width: 31%;
+  margin-top: 3%;
+  left: 5%;
+}
+
+
+.messagesRecord-sender {
+  position: relative !important;
+  width: 31%;
+  margin-top: 3%;
+  left: 65%;
 }
 
 
@@ -409,9 +420,20 @@ body {
   height: auto;
   max-width: 30%;
   max-height: 30%;
-  left: 5%;
-  border: solid #00bfb6 2px;
+  min-width: 10%;
+  min-height: 10%;
   border-radius: 3%;
+  margin-top: 3%;
+}
+
+.imageMassage-reciever {
+  border: solid #00bfb6 2px;
+  left: 5%;
+}
+
+.imageMassage-sender {
+  border: solid #d8dfdfdc 2px;
+  left: 65%;
 }
 
 .videoMessage {

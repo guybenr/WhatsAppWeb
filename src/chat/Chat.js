@@ -28,7 +28,7 @@ function Chat(props) {
 
     const sendRecord = (event) => {
         event.preventDefault();
-        let recordContent = <audio src={audioURL} controls className="messagesRecord" />;
+        let recordContent = <audio src={audioURL} controls className="messagesRecord-reciver" />;
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         props.massages.push({ massage: recordContent, isRecived: false, time: currTime });
@@ -48,7 +48,7 @@ function Chat(props) {
         if (event.key !== "Enter" || toSendMassage.current.value === "")
             return;
         event.preventDefault();
-        sendMassage();
+        sendText();
         // let contactData = UsersData.usersChat.get(props.chatName);
         // let a = contactData.find(e => e.nameContact===props.senderName);
         // //this condition checks wether the contact has already chat with the current username
@@ -70,17 +70,18 @@ function Chat(props) {
 
     const sendImage = (event) => {
         massageContent = <div>
-            <img className="imageMassage" src={URL.createObjectURL(event.target.files[0])} />
+            <img className="imageMassage imageMassage-reciever" src={URL.createObjectURL(event.target.files[0])} />
         </div>;
         sendFile();
     }
 
 
     const sendVideo = (event) => {
+        var videoInput = document.getElementById('vide');
+        var video = videoInput.files[0];
+        videoInput.src = URL.createObjectURL(video);
         massageContent = <div>
-            <video controls className="videoMessage">
-                <source src={URL.createObjectURL(event.target.files[0])} type="video/mp4"></source>
-            </video>
+            <video controls autoplay className="videoMessage" src={videoInput.src} type="video/mp4"></video>
         </div>
         sendFile();
     }
@@ -95,6 +96,17 @@ function Chat(props) {
         setReRender(!reRender);
     }
 
+
+
+    const sendText = (event) => {
+        massageContent = <div className="reciver messages">
+            <div class="message-text">
+                {toSendMassage.current.value}
+            </div>
+        </div>
+        sendFile();
+    }
+
     return (
         <div className="right-chat">
             <div class="headingChat">
@@ -106,22 +118,14 @@ function Chat(props) {
             </div>
             <div className="allMessages">
                 {massagesList}
-                <div>
-                    <img className="imageMassage" src="https://4.bp.blogspot.com/-DLjAz2-Krqk/U0pEVe2m1tI/AAAAAAAAA7s/ym3CglkFbwQ/s1600/Stunning.jpg"></img>
-                </div>
-                <div>
-                    <video controls className="videoMessage">
-                        <source src="https://cdn.bitdegree.org/learn/Pexels%20Videos%203373.mp4?raw=true" type="video/mp4"></source>
-                    </video>
-                </div>
             </div>
 
             <div class="chat-box">
                 <div class="toSend">
                     <input onChange={sendImage} type="file" id="upload" accept="image/*" hidden />
                     <label class="photo btn" id="photo" for="upload"></label>
-                    <input onChange={sendVideo} type="file" id="upload" accept="video/*" hidden />
-                    <label class="video btn" id="photo" for="upload"></label>
+                    <input onChange={sendVideo} type="file" id="vide" accept="video/*" hidden />
+                    <label class="video btn" id="video" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
                     <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
