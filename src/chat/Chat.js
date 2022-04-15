@@ -12,6 +12,7 @@ function Chat(props) {
     const [records, setRecord] = React.useState(false);
     const [reRender, setReRender] = React.useState(false);
     const toSendMassage = React.createRef('');
+    var massageContent = "";
     //open window for record
     const showRecordModal = (event) => {
         event.preventDefault();
@@ -67,11 +68,27 @@ function Chat(props) {
         }
     }
 
-
-    const sendFile = (event) => {
-        let massageContent = <div>
+    const sendImage = (event) => {
+        massageContent = <div>
             <img className="imageMassage" src={URL.createObjectURL(event.target.files[0])} />
         </div>;
+        sendFile();
+    }
+
+
+    const sendVideo = (event) => {
+        massageContent = <div>
+            <video controls className="videoMessage">
+                <source src={URL.createObjectURL(event.target.files[0])} type="video/mp4"></source>
+            </video>
+        </div>
+        sendFile();
+    }
+
+
+
+    const sendFile = (event) => {
+        console.log(massageContent);
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         props.massages.push({ massage: massageContent, isRecived: false, time: currTime });
@@ -101,9 +118,9 @@ function Chat(props) {
 
             <div class="chat-box">
                 <div class="toSend">
-                    <input onChange={sendFile} type="file" id="upload" accept="image/*" hidden />
+                    <input onChange={sendImage} type="file" id="upload" accept="image/*" hidden />
                     <label class="photo btn" id="photo" for="upload"></label>
-                    <input onChange={sendFile} type="file" id="upload" accept="video/*" hidden />
+                    <input onChange={sendVideo} type="file" id="upload" accept="video/*" hidden />
                     <label class="video btn" id="photo" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
                     <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
