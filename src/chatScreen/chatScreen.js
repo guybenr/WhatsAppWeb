@@ -73,7 +73,7 @@ function ChatScreen(props) {
             <div className="chatDetails">
                 <div class="heading">
                     <div className="circleProfile">
-                        <img src={image}></img>
+                        <img className="profileImg" src={image}></img>
                     </div>
                     <div className="MyName">{name}
                         <button class="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>

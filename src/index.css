@@ -140,7 +140,7 @@ body {
   width: 40px;
 }
 
-img {
+.profileImg {
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -400,4 +400,27 @@ img {
 .messagesRecord {
   position: relative !important;
   width: 100%;
+}
+
+
+.imageMassage {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 30%;
+  max-height: 30%;
+  left: 5%;
+  border: solid #00bfb6 2px;
+  border-radius: 3%;
+}
+
+.videoMessage {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 30%;
+  max-height: 30%;
+  left: 5%;
+  border: solid #00bfb6 2px;
+  border-radius: 3%;
 }
