@@ -136,10 +136,10 @@ function Chat(props) {
                 <Modal.Body>
                     <div>
                         <audio src={audioURL} controls />
-                        <button onClick={startRecording} disabled={isRecording} className="startRecord btn btn-primary">
+                        <button onClick={startRecording} disabled={isRecording} className="startRecord">
                             start recording
                         </button>
-                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord btn btn-primary">
+                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
                             stop recording
                         </button>
                     </div>
