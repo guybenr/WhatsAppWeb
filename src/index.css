@@ -201,7 +201,6 @@ body {
   left: 90%;
   font-size: 85%;
   padding: 0;
-  position: relative;
   bottom: 50px;
   color: rgba(0, 0, 0, .4);
 }
@@ -371,27 +370,50 @@ body {
 
 .message-text {
   font-size: large;
+  word-break: break-word;
 }
 
-.headingRecord {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  background-color: #d8dfdfdc;
-  background-size: cover;
-  display: inline-block;
-  text-align: center;
+.bodyRecordWin {
+  top: 14px;
+  height: 150px;
 }
+
 
 .startRecord {
   position: relative;
   top: 30px;
-  background-color: #d8dfdfdc;
+  width: 32%;
+  background-color: #2589f4ee;
   background-size: cover;
+  font-weight: 700;
+  left: 1%;
+  top: 3%;
+  font-family: Arial, Helvetica, sans-serif;
+  bottom: -9px;
+  border-radius: 5%;
+  color: #fff;
+  text-shadow: rgb(0, 0, 0);
 }
 
+
 .stoptRecord {
-  background-color: #d8dfdfdc;
+  position: relative;
+  background-color: #ef0f0ffe;
   background-size: cover;
+  width: 32%;
+  font-weight: 700;
+  left: 73%;
+  width: 26%;
+  font-family: Arial, Helvetica, sans-serif;
+  bottom: 28px;
+  color: #fff;
+
+}
+
+
+.audio {
+  position: relative;
+  width: 100%;
 }
 
 .sendRecord {
@@ -406,7 +428,7 @@ body {
 .messagesRecord-reciver {
   position: relative !important;
   width: 31%;
-  margin-top: 3%;
+  margin-top: 1%;
   left: 5%;
 }
 
@@ -414,7 +436,7 @@ body {
 .messagesRecord-sender {
   position: relative !important;
   width: 31%;
-  margin-top: 3%;
+  margin-top: 1%;
   left: 65%;
 }
 
@@ -450,4 +472,14 @@ body {
   left: 5%;
   border: solid #00bfb6 2px;
   border-radius: 3%;
+}
+
+
+.chat-time-sender {
+  left: 31% !important;
+  color: rgb(255, 255, 255);
+}
+
+.chat-time-reciver {
+  left: 91% !important;
 }

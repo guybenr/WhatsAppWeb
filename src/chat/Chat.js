@@ -130,22 +130,19 @@ function Chat(props) {
                 </div>
             </div>
             <Modal show={records} onHide={() => setRecord(false)}>
-                <Modal.Header className="headingRecord">
-                    <div>Record</div>
-                </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="bodyRecordWin">
                     <div>
-                        <audio src={audioURL} controls />
-                        <button onClick={startRecording} disabled={isRecording} className="startRecord">
-                            start recording
+                        <audio src={audioURL} controls className="audio" />
+                        <button onClick={startRecording} disabled={isRecording} className=" form-control startRecord">
+                            Start recording
                         </button>
-                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
-                            stop recording
+                        <button onClick={stopRecording} disabled={!isRecording} className=" form-control stoptRecord">
+                            Stop
                         </button>
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="sendRecord" type="button" onClick={sendRecord}>
-                    send
+                    Send
                 </Modal.Footer>
             </Modal>
         </div>
