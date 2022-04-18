@@ -237,6 +237,7 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #000;
+  text-decoration: none;
 }
 
 .chatPhoto {
@@ -262,6 +263,10 @@ body {
   top: 20px;
 }
 
+.chat-time-sender {
+  position: relative;
+  left: 30%;
+}
 
 
 .chat-box{

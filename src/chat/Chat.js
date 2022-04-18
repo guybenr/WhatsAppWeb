@@ -22,7 +22,7 @@ function Chat(props) {
     //function returns all of the Massage Components that are in the database
     const massagesList = props.massages.map((massage, key) => {
         if (massage.massage !== "")
-            return <Massage content={massage.massage} isRecived={massage.isRecived} />
+            return <Massage content={massage.massage} isRecived={massage.isRecived} time={massage.time} />
         return <></>
     });
 
@@ -77,11 +77,8 @@ function Chat(props) {
 
 
     const sendVideo = (event) => {
-        var videoInput = document.getElementById('vide');
-        var video = videoInput.files[0];
-        videoInput.src = URL.createObjectURL(video);
         massageContent = <div>
-            <video controls autoplay className="videoMessage" src={videoInput.src} type="video/mp4"></video>
+            <video controls autoplay className="videoMessage" src={URL.createObjectURL(event.target.files[0])} type="video/mp4"></video>
         </div>
         sendFile();
     }
@@ -104,6 +101,7 @@ function Chat(props) {
                 {toSendMassage.current.value}
             </div>
         </div>
+        toSendMassage.current.value = "";
         sendFile();
     }
 
@@ -127,7 +125,7 @@ function Chat(props) {
                     <input onChange={sendVideo} type="file" id="vide" accept="video/*" hidden />
                     <label class="video btn" id="video" for="upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
-                    <input onKeyPress={handlePressingKey} ref={toSendMassage} id="searchText" type="text" class="form-control textBox" name="searchText"></input>
+                    <input onKeyPress={handlePressingKey} ref={toSendMassage} type="text" class="form-control textBox"></input>
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
@@ -138,10 +136,10 @@ function Chat(props) {
                 <Modal.Body>
                     <div>
                         <audio src={audioURL} controls />
-                        <button onClick={startRecording} disabled={isRecording} className="startRecord">
+                        <button onClick={startRecording} disabled={isRecording} className="startRecord btn btn-primary">
                             start recording
                         </button>
-                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord">
+                        <button onClick={stopRecording} disabled={!isRecording} className="stoptRecord btn btn-primary">
                             stop recording
                         </button>
                     </div>
