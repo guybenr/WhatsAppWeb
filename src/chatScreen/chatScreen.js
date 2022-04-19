@@ -39,7 +39,7 @@ function ChatScreen(props) {
             );
             setToAddContact(false);
         } else if (!UsersData.usersChat.has(contactName.current.value)) {
-            alert("Invalid Contact Identifier");
+            alert("Contact Identifier Doesn't Exist");
         } else {
             alert("Contact Already Exist");
         }
