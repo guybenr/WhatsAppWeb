@@ -38,9 +38,10 @@ function ChatScreen(props) {
                 { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "", type: "" }] }
             );
             setToAddContact(false);
-        }
-        else {
-            alert("Contact Identifier wrong")
+        } else if (!UsersData.usersChat.has(contactName.current.value)) {
+            alert("Invalid Contact Identifier");
+        } else {
+            alert("Contact Already Exist");
         }
     }
 
