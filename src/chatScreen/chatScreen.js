@@ -11,7 +11,7 @@ import ContactListResult from "../contactsListResult/ContactListResult";
 function ChatScreen(props) {
 
     const [toAddContact, setToAddContact] = React.useState(false);
-    const [contacts, setContacts] = React.useState(UsersData.usersChat.get(props.userLoginDetails).map((x) => x));
+    const [contacts, setContacts] = React.useState(UsersData.usersChat.get(props.userLoginDetails));
     const [showChat, setshowChat] = React.useState(false);
     const [detailsChat, setDetailsChat] = React.useState("");
     const [reRender, setReRender] = React.useState(false);
@@ -34,11 +34,8 @@ function ChatScreen(props) {
         let userName = props.userLoginDetails;
         // adding the contact to the database and check if the contact exist
         if (UsersData.usersChat.has(contactName.current.value) && !UsersData.usersChat.get(userName).some(e => e.nameContact===contactName.current.value)) {
-            UsersData.usersChat.get(userName).push(
-                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
-            );
             contacts.push(
-                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "" }] }
+                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "", type: "" }] }
             );
             setToAddContact(false);
         }
