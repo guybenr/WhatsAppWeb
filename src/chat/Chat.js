@@ -12,6 +12,7 @@ function Chat(props) {
     const [records, setRecord] = React.useState(false);
     const toSendMassage = React.createRef('');
     var massageContent = "";
+    var massageType = "";
     //open window for record
     const showRecordModal = (event) => {
         event.preventDefault();
@@ -21,16 +22,17 @@ function Chat(props) {
     //function returns all of the Massage Components that are in the database
     const massagesList = props.massages.map((massage, key) => {
         if (massage.massage !== "")
-            return <Massage content={massage.massage} isRecived={massage.isRecived} time={massage.time} />
+            return <Massage content={massage.massage} isRecived={massage.isRecived} time={massage.time} type={massage.type}/>
         return <></>
     });
 
     const sendRecord = (event) => {
         event.preventDefault();
-        let recordContent = <audio src={audioURL} controls className="messagesRecord-reciver" />;
+        let recordContent = audioURL;
         let currTime = new Date();
-        currTime = currTime.getHours() + ":" + currTime.getMinutes();
-        props.massages.push({ massage: recordContent, isRecived: false, time: currTime });
+        currTime = toTwoDigits(currTime.getHours()) + ":" + toTwoDigits(currTime.getMinutes());
+        props.massages.push({ massage: recordContent, isRecived: false, time: currTime, type: "audio" });
+        props.setReRender(!props.reRender);
         setRecord(false);
     }
 
@@ -51,9 +53,8 @@ function Chat(props) {
     }
 
     const sendImage = (event) => {
-        massageContent = <div>
-            <img className="imageMassage imageMassage-reciever" src={URL.createObjectURL(event.target.files[0])} />
-        </div>;
+        massageContent = URL.createObjectURL(event.target.files[0]);
+        massageType = "image";
         sendFile();
     }
 
@@ -61,6 +62,19 @@ function Chat(props) {
     const sendVideo = (event) => {
         let file = event.target.files[0];
         getBase64(file);
+    }
+
+    const getBase64 = (file) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            massageContent = reader.result;
+            massageType = "video";
+            sendFile();
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
     }
 
     const toTwoDigits = (time) => {
@@ -73,30 +87,14 @@ function Chat(props) {
     const sendFile = (event) => {
         let currTime = new Date();
         currTime = toTwoDigits(currTime.getHours()) + ":" + toTwoDigits(currTime.getMinutes());
-        console.log(massageContent);
-        props.massages.push({ massage: massageContent, isRecived: false, time: currTime });
+        props.massages.push({ massage: massageContent, isRecived: false, time: currTime, type: massageType });
         props.setReRender(!props.reRender);
-    }
-
-    const getBase64 = (file) => {
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-            massageContent = (<video className="videoMessage" src={reader.result} controls></video>);
-            sendFile();
-        };
-        reader.onerror = function (error) {
-            console.log('Error: ', error);
-        };
     }
 
 
     const sendText = (event) => {
-        massageContent = <div className="reciver messages">
-            <div className="message-text">
-                {toSendMassage.current.value}
-            </div>
-        </div>
+        massageContent = toSendMassage.current.value;
+        massageType = "text";
         toSendMassage.current.value = "";
         sendFile();
     }

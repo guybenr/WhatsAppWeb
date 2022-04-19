@@ -6,23 +6,14 @@ const UsersData = {
     usersChat: new Map([
         ['adi', [{
             nameContact: 'guy', massages: [{
-                massage: <div className="sender messages">
-                    <div className="message-text">
-                        hello my friend
-                    </div>
-                </div>, isRecived: true, time: "18:00"
-            },
+                massage: "hello friend", isRecived: true, time: "18:00", type: "text"},
             {
-                massage: <div className="reciver messages">
-                    <div className="message-text">
-                        hello Adi Aviv
-                    </div>
-                </div>, isRecived: false, time: "18:00"
+                massage: "hello Adi Aviv", isRecived: false, time: "18:00", type: "text"
             }]
         },
-        { nameContact: 'hemi', massages: [{ massage: '', isRecived: true, time: "" }] }]],
-        ['guy', [{ nameContact: '', massages: [{ massage: '', isRecived: true, time: "18:00" }] }]],
-        ['hemi', [{ nameContact: '', massages: [{ massage: '', isRecived: true, time: "" }] }]]
+        { nameContact: 'hemi', massages: [{ massage: '', isRecived: true, time: "", type: "" }] }]],
+        ['guy', [{ nameContact: 'adi', massages: [{ massage: '', isRecived: true, time: "", type: "" }] }]],
+        ['hemi', [{ nameContact: '', massages: [{ massage: '', isRecived: true, time: "", type: "" }] }]]
     ]),
 
     usersPhoto: new Map([

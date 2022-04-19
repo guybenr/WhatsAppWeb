@@ -330,13 +330,21 @@ body {
   margin-bottom: 2%;
 }
 
-.reciver {
+
+.sender {
   left: 5%;
   margin-top: 3%;
 }
 
-.reciver:after {
-	content: "";
+.reciver {
+  left: 65%;
+  margin-top: 3%;
+  background: #d8dfdfdc;
+  color: rgb(0, 0, 0);
+}
+
+.sender:after {
+  content: "";
   width: 0px;
   height: 0px;
   position: absolute;
@@ -348,14 +356,7 @@ body {
   top: 0px;
 }
 
-.sender {
-  left: 65%;
-  margin-top: 3%;
-  background: #d8dfdfdc;
-  color: rgb(0, 0, 0);
-}
-
-.sender:after {
+.reciver:after {
   content: "";
   width: 0px;
   height: 0px;
