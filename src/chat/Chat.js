@@ -10,7 +10,6 @@ import UsersData from "../usersData/UsersData";
 function Chat(props) {
     let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
     const [records, setRecord] = React.useState(false);
-    const [reRender, setReRender] = React.useState(false);
     const toSendMassage = React.createRef('');
     var massageContent = "";
     //open window for record
@@ -35,29 +34,12 @@ function Chat(props) {
         setRecord(false);
     }
 
-    const sendMassage = () => { // function send the massage to the contact
-        let currTime = new Date();
-        currTime = currTime.getHours() + ":" + currTime.getMinutes();
-        let currMassage = toSendMassage.current.value;
-        props.massages.push({ massage: currMassage, isRecived: false, time: currTime });
-        toSendMassage.current.value = "";
-        setReRender(!reRender);
-    }
     //function handeling sending massage to a contact
     const handlePressingKey = (event) => {
         if (event.key !== "Enter" || toSendMassage.current.value === "")
             return;
         event.preventDefault();
         sendText();
-        // let contactData = UsersData.usersChat.get(props.chatName);
-        // let a = contactData.find(e => e.nameContact===props.senderName);
-        // //this condition checks wether the contact has already chat with the current username
-        // if(a === undefined) { 
-        //     contactData.push({nameContact: props.senderName, massages: 
-        //                     [{massage: currMassage, isRecived: true, time: currTime}]});
-        // } else {
-        //     a.massages.push({massage: currMassage, isRecived: true, time: currTime})
-        // }
     }
 
     var ImageChat;
@@ -77,20 +59,36 @@ function Chat(props) {
 
 
     const sendVideo = (event) => {
-        massageContent =
-            <video className="videoMessage" src={URL.createObjectURL(event.target.files[0])} type="video/mp4" controls></video>;
-        sendFile();
+        let file = event.target.files[0];
+        getBase64(file);
     }
 
-
+    const toTwoDigits = (time) => {
+        if(time < 10) {
+            return "0" + time;
+        }
+        return time;
+    }
 
     const sendFile = (event) => {
         let currTime = new Date();
-        currTime = currTime.getHours() + ":" + currTime.getMinutes();
+        currTime = toTwoDigits(currTime.getHours()) + ":" + toTwoDigits(currTime.getMinutes());
+        console.log(massageContent);
         props.massages.push({ massage: massageContent, isRecived: false, time: currTime });
-        setReRender(!reRender);
+        props.setReRender(!props.reRender);
     }
 
+    const getBase64 = (file) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            massageContent = (<video className="videoMessage" src={reader.result} controls></video>);
+            sendFile();
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    }
 
 
     const sendText = (event) => {
@@ -118,9 +116,9 @@ function Chat(props) {
             
             <div className="chat-box">
                 <div className="toSend">
-                    <input onChange={sendImage} type="file" id="upload" accept="image/*" hidden />
+                    <input onInput={sendImage} type="file" id="upload" accept="image/*" hidden />
                     <label className="photo btn" id="photo" for="upload"></label>
-                    <input onChange={sendVideo} type="file" id="video-upload" accept="video/*" hidden />
+                    <input onInput={sendVideo} type="file" id="video-upload" accept="video/*" hidden />
                     <label className="video btn" id="video" for="video-upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
                     <input onKeyPress={handlePressingKey} ref={toSendMassage} type="text" class="form-control textBox"></input>

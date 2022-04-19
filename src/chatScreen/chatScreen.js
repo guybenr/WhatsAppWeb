@@ -14,6 +14,7 @@ function ChatScreen(props) {
     const [contacts, setContacts] = React.useState(UsersData.usersChat.get(props.userLoginDetails).map((x) => x));
     const [showChat, setshowChat] = React.useState(false);
     const [detailsChat, setDetailsChat] = React.useState("");
+    const [reRender, setReRender] = React.useState(false);
 
 
     const contactName = React.createRef('');
@@ -82,7 +83,7 @@ function ChatScreen(props) {
                 <Search setSearchQuery={doSearch} />
                 <ContactListResult contactsList={contacts} showChat={showOpenChat} setDetails={setDetailsChat} />
             </div>
-            {(detailsChat !== "") && <Chat chatName={detailsChat}
+            {(detailsChat !== "") && <Chat chatName={detailsChat} setReRender={setReRender} reRender={reRender}
                 massages={UsersData.usersChat.get(props.userLoginDetails).find(element => element.nameContact === detailsChat).massages} />}
             <Modal show={toAddContact} onHide={() => setToAddContact(false)}>
                 <Modal.Header closeButton>
