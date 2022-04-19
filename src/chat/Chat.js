@@ -26,6 +26,14 @@ function Chat(props) {
         return <></>
     });
 
+    var ImageChat;
+    for (let i = 0; i < UsersData.usersList.length; ++i) {
+        if (UsersData.usersList[i].userName === props.chatName) {
+            ImageChat = UsersData.usersList[i].image;
+            break;
+        }
+    }
+
     const sendRecord = (event) => {
         event.preventDefault();
         let recordContent = audioURL;
@@ -42,14 +50,6 @@ function Chat(props) {
             return;
         event.preventDefault();
         sendText();
-    }
-
-    var ImageChat;
-    for (let i = 0; i < UsersData.usersList.length; ++i) {
-        if (UsersData.usersList[i].userName === props.chatName) {
-            ImageChat = UsersData.usersList[i].image;
-            break;
-        }
     }
 
     const sendImage = (event) => {
