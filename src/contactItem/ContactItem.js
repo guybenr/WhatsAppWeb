@@ -6,7 +6,6 @@ function ContactItem(props) {
     for (let i = 0; i < UsersData.usersList.length; ++i) {
         if (UsersData.usersList[i].userName === props.contactName) {
             ImageChat = UsersData.usersList[i].image;
-            break;
         }
     }
 
@@ -20,6 +19,7 @@ function ContactItem(props) {
                     </div>
                     <div className="sideBar-name">{props.contactName}
                     </div>
+                    <div className="lastMessage">{props.lastMessage}</div>
                     <span className="time-meta">{props.sentTime}</span>
                 </div>
             </button>

@@ -46,11 +46,11 @@ function Massage(props) {
             {props.isRecived ?
                 <div>
                     {HtmlContent}
-                    <span className="time-meta chat-time-reciever">{props.time}</span>
+                    <span className="chat-time-reciever">{props.time}</span>
                 </div> :
                 <div>
                     {HtmlContent}
-                    <span className="time-meta chat-time-sender">{props.time}</span>
+                    <span className="chat-time-sender">{props.time}</span>
                 </div>}
         </>
     );

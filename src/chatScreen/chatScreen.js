@@ -49,7 +49,6 @@ function ChatScreen(props) {
     }
 
 
-    let Image_chat;
     const showOpenChat = (event) => {
         event.preventDefault();
         setshowChat(true);
