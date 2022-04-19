@@ -69,14 +69,14 @@ function ChatScreen(props) {
 
 
     return (
-        <div class="app">
+        <div className="app">
             <div className="chatDetails">
-                <div class="heading">
+                <div className="heading">
                     <div className="circleProfile">
                         <img className="profileImg" src={image}></img>
                     </div>
                     <div className="MyName">{name}
-                        <button class="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
+                        <button className="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
                     </div>
                 </div>
                 <Search setSearchQuery={doSearch} />
@@ -90,7 +90,7 @@ function ChatScreen(props) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <input class="form-control me-2" type="search" placeholder="Contact's Identifier" aria-label="Search" ref={contactName}></input>
+                    <input className="form-control me-2" type="search" placeholder="Contact's Identifier" aria-label="Search" ref={contactName}></input>
                 </Modal.Body>
 
                 <Modal.Footer>

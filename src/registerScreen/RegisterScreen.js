@@ -91,37 +91,37 @@ function RegisterScreen(props) {
         <div className="register">
             <div className="boxRegister shadow-lg p-3 mb-5 bg-body rounded">
                 <form onSubmit={handleSubmit}>
-                    <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input class="form-control username form1" id="username" placeholder="Username"></input>
+                    <div className="mb-3">
+                        <label className="form-label">Username</label>
+                        <input className="form-control username form1" id="username" placeholder="Username"></input>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nickname</label>
-                        <input id="nick-name" class="form-control username form1" placeholder="Nick&nbsp;name"></input>
+                    <div className="mb-3">
+                        <label className="form-label">Nickname</label>
+                        <input id="nick-name" className="form-control username form1" placeholder="Nick&nbsp;name"></input>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">image</label>
-                        <input class="form-control image form1" placeholder="Image"></input>
+                    <div className="mb-3">
+                        <label className="form-label">image</label>
+                        <input className="form-control image form1" placeholder="Image"></input>
                         <input type="file" id="upload" accept="image/*" hidden />
                         <label class = "addPhoto btn btn-primary" id="photo" for="upload">Choose file</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control password form1" id="exampleInputPassword2" placeholder="Password"></input>
-                        <div id="passwordHelpBlock" class="form-text">
+                    <div className="mb-3">
+                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <input type="password" className="form-control password form1" id="exampleInputPassword2" placeholder="Password"></input>
+                        <div id="passwordHelpBlock" className="form-text">
                             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control password form1" id="exampleInputPassword1" placeholder="Confirm Password"></input>
+                    <div className="mb-3">
+                        <label for="exampleInputPassword1" className="form-label">Confirm Password</label>
+                        <input type="password" className="form-control password form1" id="exampleInputPassword1" placeholder="Confirm Password"></input>
                     </div>
                     <div className="mb-3">
                         <label>Already register?&nbsp;</label>
                         <Link to='/'>Click here</Link>
                         <label>&nbsp;to login</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" className="btn btn-primary">Register</button>
                 </form>
             </div>
             <ErrorModal handleShow={showError} handleClose={() => setShowError(false)} bodyMassage={bodyMassage} closeButton="Close" />

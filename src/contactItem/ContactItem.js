@@ -12,15 +12,15 @@ function ContactItem(props) {
 
 
     return (
-        <ul class="list-group users-list">
-            <button type="button" class="list-group-item list-group-item-action" onClick={() => {props.setDetails(props.contactName)}}>
-                <div class="sideBar-body">
-                    <div class="avatar-icon">
+        <ul className="list-group users-list">
+            <button type="button" className="list-group-item list-group-item-action" onClick={() => {props.setDetails(props.contactName)}}>
+                <div className="sideBar-body">
+                    <div className="avatar-icon">
                         <img src={ImageChat}></img>
                     </div>
-                    <div class="sideBar-name">{props.contactName}
+                    <div className="sideBar-name">{props.contactName}
                     </div>
-                    <span class="time-meta">{props.sentTime}</span>
+                    <span className="time-meta">{props.sentTime}</span>
                 </div>
             </button>
         </ul>

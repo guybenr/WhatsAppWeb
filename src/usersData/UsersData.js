@@ -7,14 +7,14 @@ const UsersData = {
         ['adi', [{
             nameContact: 'guy', massages: [{
                 massage: <div className="sender messages">
-                    <div class="message-text">
+                    <div className="message-text">
                         hello my friend
                     </div>
                 </div>, isRecived: true, time: "18:00"
             },
             {
                 massage: <div className="reciver messages">
-                    <div class="message-text">
+                    <div className="message-text">
                         hello Adi Aviv
                     </div>
                 </div>, isRecived: false, time: "18:00"

@@ -77,16 +77,14 @@ function Chat(props) {
 
 
     const sendVideo = (event) => {
-        massageContent = <div>
-            <video controls autoplay className="videoMessage" src={URL.createObjectURL(event.target.files[0])} type="video/mp4"></video>
-        </div>
+        massageContent =
+            <video className="videoMessage" src={URL.createObjectURL(event.target.files[0])} type="video/mp4" controls></video>;
         sendFile();
     }
 
 
 
     const sendFile = (event) => {
-        console.log(massageContent);
         let currTime = new Date();
         currTime = currTime.getHours() + ":" + currTime.getMinutes();
         props.massages.push({ massage: massageContent, isRecived: false, time: currTime });
@@ -97,7 +95,7 @@ function Chat(props) {
 
     const sendText = (event) => {
         massageContent = <div className="reciver messages">
-            <div class="message-text">
+            <div className="message-text">
                 {toSendMassage.current.value}
             </div>
         </div>
@@ -107,26 +105,26 @@ function Chat(props) {
 
     return (
         <div className="right-chat">
-            <div class="headingChat">
+            <div className="headingChat">
                 <div className="chatPhoto">
                     <img src={ImageChat} className="profileImg"></img>
                 </div>
                 <a className="chatName">{props.chatName}</a>
-                <span class="heading-online">Online</span>
+                <span className="heading-online">Online</span>
             </div>
             <div className="allMessages">
                 {massagesList}
             </div>
-
-            <div class="chat-box">
-                <div class="toSend">
+            
+            <div className="chat-box">
+                <div className="toSend">
                     <input onChange={sendImage} type="file" id="upload" accept="image/*" hidden />
-                    <label class="photo btn" id="photo" for="upload"></label>
-                    <input onChange={sendVideo} type="file" id="vide" accept="video/*" hidden />
-                    <label class="video btn" id="video" for="upload"></label>
+                    <label className="photo btn" id="photo" for="upload"></label>
+                    <input onChange={sendVideo} type="file" id="video-upload" accept="video/*" hidden />
+                    <label className="video btn" id="video" for="video-upload"></label>
                     <button className="record" onClick={showRecordModal}></button>
                     <input onKeyPress={handlePressingKey} ref={toSendMassage} type="text" class="form-control textBox"></input>
-                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    <span className="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
             <Modal show={records} onHide={() => setRecord(false)}>

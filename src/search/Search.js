@@ -9,10 +9,10 @@ function Search(props) {
     }
 
     return (
-        <div class="searchBox">
-            <div class="searchBox-inner">
-                <input ref={searchBox} onKeyUp={search} id="searchText" type="text" class="form-control" name="searchText" placeholder="Search"></input>
-                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        <div className="searchBox">
+            <div className="searchBox-inner">
+                <input ref={searchBox} onKeyUp={search} id="searchText" type="text" className="form-control" name="searchText" placeholder="Search"></input>
+                <span className="glyphicon glyphicon-search form-control-feedback"></span>
             </div>
         </div>
     );

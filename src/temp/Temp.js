@@ -34,7 +34,7 @@ function Temp(props) {
 
     return (
 
-        <div class="app">
+        <div className="app">
             <div class="row">
                 <div class="col-5 sm">
                     <div className="chatDetails">
