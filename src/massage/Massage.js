@@ -2,7 +2,7 @@ function Massage(props) {
     var HtmlContent;
     switch(props.type) {
         case "text":
-            HtmlContent = props.isRecived ? <div className="reciver messages">
+            HtmlContent = props.isRecived ? <div className="reciever messages">
                                                 <div className="message-text">
                                                     {props.content}
                                                 </div>
@@ -14,15 +14,31 @@ function Massage(props) {
                                             </div>;
             break;
         case "audio":
-            HtmlContent = <audio src={props.content} controls className="messagesRecord-reciver" />;
+            HtmlContent = props.isRecived ? <div>
+                                                <audio src={props.content} controls className="messagesRecord messagesRecord-reciever" />
+                                            </div>
+                                            :
+                                            <div>
+                                                <audio src={props.content} controls className="messagesRecord messagesRecord-sender" />
+                </div>
             break;
         case "video":
-            HtmlContent = <video className="videoMessage" src={props.content} controls></video>;
+            HtmlContent = props.isRecived ? <div>
+                                                <video className="videoMessage videoMessage-reciever" src={props.content} controls></video>
+                                            </div>
+                                                :
+                                            <div>
+                                                <video className="videoMessage videoMessage-sender" src={props.content} controls></video>
+                                            </div>;
             break;
         case "image":
-            HtmlContent = <div>
-                                <img className="imageMassage imageMassage-reciever" src={props.content} />
-                        </div>;
+            HtmlContent = props.isRecived ? <div>
+                                                <img className="imageMassage imageMassage-reciever" src={props.content} />
+                                            </div>
+                                                :
+                                            <div>
+                                                <img className="imageMassage imageMassage-sender" src={props.content} />
+                                            </div>;
             break;
     }
     return (
@@ -30,7 +46,7 @@ function Massage(props) {
             {props.isRecived ?
                 <div>
                     {HtmlContent}
-                    <span className="time-meta chat-time-reciver">{props.time}</span>
+                    <span className="time-meta chat-time-reciever">{props.time}</span>
                 </div> :
                 <div>
                     {HtmlContent}

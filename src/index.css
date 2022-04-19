@@ -262,11 +262,6 @@ body {
   top: 20px;
 }
 
-.chat-time-sender {
-  position: relative;
-  left: 30%;
-}
-
 
 .chat-box{
   position: fixed;
@@ -327,18 +322,17 @@ body {
   color: #fff;
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 2%;
 }
 
 
 .sender {
   left: 5%;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
-.reciver {
+.reciever {
   left: 65%;
-  margin-top: 3%;
+  margin-top: 2%;
   background: #d8dfdfdc;
   color: rgb(0, 0, 0);
 }
@@ -356,7 +350,7 @@ body {
   top: 0px;
 }
 
-.reciver:after {
+.reciever:after {
   content: "";
   width: 0px;
   height: 0px;
@@ -411,7 +405,6 @@ body {
 
 }
 
-
 .audio {
   position: relative;
   width: 100%;
@@ -426,19 +419,22 @@ body {
   text-align: center;
 }
 
-.messagesRecord-reciver {
-  position: relative !important;
+
+.messagesRecord {
   width: 31%;
   margin-top: 1%;
-  left: 5%;
+}
+
+
+.messagesRecord-reciever {
+  position: relative !important;
+  left: 65%;
 }
 
 
 .messagesRecord-sender {
   position: relative !important;
-  width: 31%;
-  margin-top: 1%;
-  left: 65%;
+  left: 5%;
 }
 
 
@@ -451,15 +447,15 @@ body {
   min-width: 10%;
   min-height: 10%;
   border-radius: 3%;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
-.imageMassage-reciever {
+.imageMassage-sender {
   border: solid #00bfb6 2px;
   left: 5%;
 }
 
-.imageMassage-sender {
+.imageMassage-reciever {
   border: solid #d8dfdfdc 2px;
   left: 65%;
 }
@@ -470,17 +466,29 @@ body {
   height: auto;
   max-width: 30%;
   max-height: 30%;
+  min-width: 10%;
+  min-height: 10%;
+  border-radius: 3%;
+  margin-top: 2%;
+}
+
+.videoMessage-sender {
   left: 5%;
   border: solid #00bfb6 2px;
-  border-radius: 3%;
+}
+
+.videoMessage-reciever {
+  left: 65%;
+  border: solid #d8dfdfdc 2px;
 }
 
 
 .chat-time-sender {
-  left: 31% !important;
-  color: rgb(255, 255, 255);
+  left: 31%;
+  bottom: 27px;
 }
 
-.chat-time-reciver {
-  left: 91% !important;
+.chat-time-reciever {
+  left: 91%;
+  bottom: 27px;
 }
