@@ -34,12 +34,11 @@ function Chat(props) {
         }
     }
 
+    // function sending an audio massage
     const sendRecord = (event) => {
         event.preventDefault();
         let recordContent = audioURL;
-        let currTime = new Date();
-        currTime = toTwoDigits(currTime.getHours()) + ":" + toTwoDigits(currTime.getMinutes());
-        props.massages.push({ massage: recordContent, isRecived: false, time: currTime, type: "audio" });
+        props.massages.push({ massage: recordContent, isRecived: false, time: new Date(), type: "audio" });
         props.setReRender(!props.reRender);
         setRecord(false);
     }
@@ -52,18 +51,20 @@ function Chat(props) {
         sendText();
     }
 
+    //function sending an image massage
     const sendImage = (event) => {
         massageContent = URL.createObjectURL(event.target.files[0]);
         massageType = "image";
         sendFile();
     }
 
-
+    //function sending an image massage
     const sendVideo = (event) => {
         let file = event.target.files[0];
         getBase64(file);
     }
 
+    //function converting file to base64
     const getBase64 = (file) => {
         var reader = new FileReader();
         reader.readAsDataURL(file);
@@ -77,21 +78,13 @@ function Chat(props) {
         };
     }
 
-    const toTwoDigits = (time) => {
-        if(time < 10) {
-            return "0" + time;
-        }
-        return time;
-    }
-
+    //function sending the massageContent by adding it to the dataBase and re rendering the outer component
     const sendFile = (event) => {
-        let currTime = new Date();
-        currTime = toTwoDigits(currTime.getHours()) + ":" + toTwoDigits(currTime.getMinutes());
-        props.massages.push({ massage: massageContent, isRecived: false, time: currTime, type: massageType });
+        props.massages.push({ massage: massageContent, isRecived: false, time: new Date(), type: massageType });
         props.setReRender(!props.reRender);
     }
 
-
+    // function sending a text massage
     const sendText = (event) => {
         massageContent = toSendMassage.current.value;
         massageType = "text";

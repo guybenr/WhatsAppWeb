@@ -1,5 +1,20 @@
 function Massage(props) {
+
+    //function gets a Date object and return the time in hh:mm string format
+    const toHoursMintues = (time) => {
+        let hours = time.getHours();
+        if(hours < 10) {
+            hours ="0" + hours;
+        }
+        let mins = time.getMinutes();
+        if(mins < 10) {
+            mins = "0" + mins;
+        }
+        return hours + ":" + mins;
+    }
+
     var HtmlContent;
+    //every case is for a different type of massage: text, audio, video and image.
     switch(props.type) {
         case "text":
             HtmlContent = props.isRecived ? <div className="reciever messages">
@@ -20,7 +35,7 @@ function Massage(props) {
                                             :
                                             <div>
                                                 <audio src={props.content} controls className="messagesRecord messagesRecord-sender" />
-                </div>
+                                            </div>
             break;
         case "video":
             HtmlContent = props.isRecived ? <div>
@@ -46,11 +61,11 @@ function Massage(props) {
             {props.isRecived ?
                 <div>
                     {HtmlContent}
-                    <span className="chat-time-reciever">{props.time}</span>
+                    <span className="chat-time-reciever">{toHoursMintues(props.time)}</span>
                 </div> :
                 <div>
                     {HtmlContent}
-                    <span className="chat-time-sender">{props.time}</span>
+                    <span className="chat-time-sender">{toHoursMintues(props.time)}</span>
                 </div>}
         </>
     );

@@ -19,13 +19,13 @@ function ChatScreen(props) {
 
     const contactName = React.createRef('');
 
+    //function responsible on showing the modal contact
     const showAddContactModal = (event) => {
         event.preventDefault();
         setToAddContact(true);
     }
 
     // function adding the contact to the database
-
     const addContact = (event) => {
         event.preventDefault();
         if (contactName.current.value === '') { // validation that the input isnt empty
@@ -35,11 +35,13 @@ function ChatScreen(props) {
         // adding the contact to the database and check if the contact exist
         if (UsersData.usersChat.has(contactName.current.value) && !UsersData.usersChat.get(userName).some(e => e.nameContact===contactName.current.value)) {
             contacts.push(
-                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: "", type: "" }] }
+                { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: new Date(), type: "" }] }
             );
             setToAddContact(false);
+        //if there is no such username in the database
         } else if (!UsersData.usersChat.has(contactName.current.value)) {
             alert("Contact Identifier Doesn't Exist");
+        //if the contact already being added
         } else {
             alert("Contact Already Exist");
         }
