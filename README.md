@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# WhatsApp Web Client Side
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project use React and Bootstrap, the two libaries that being used in the project are:
+
+1.react-router-dom
+2.react-bootstrap
 
 ## Available Scripts
 
