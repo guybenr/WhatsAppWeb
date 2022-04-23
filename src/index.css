@@ -108,10 +108,10 @@ body {
   overflow: auto;
   overflow-x: hidden;
   background-color: rgb(255, 255, 255);
-  width: 29.4%;
-  height: 90%;
+  width: 34.5%;
+  height: 100%;
   padding-left: 1.0%;
-  position: fixed;
+  position: absolute;
   border-radius: 5px;
   border-right: 1px solid rgba(0, 0, 0, .1);
 }
@@ -232,16 +232,16 @@ body {
   width: 55vw;
   height: 85%;
   overflow-y: scroll !important;
+  margin-top: 70px;
 }
 
 
 .headingChat {
-  position: relative;
-  left: 29%;
+  position: absolute;
+  left: 34.5%;
   height: 69px;
   width: 100%;
   background-color: rgba(196, 199, 198, 0.463);
-  padding: 0;
 }
 
 .chatName {
@@ -280,20 +280,19 @@ body {
 }
 
 
-.chat-box{
+.chat-box {  
   position: fixed;
   top: 88%;
-  left: 37.1vw;
+  left: 37.1vw; 
   width: 55.5%;
 }
-
 .toSend {
   display: flex;
   position: relative;
   width: 100%;
   padding: 10px;
-  padding-left: 130px;
-  padding-right: 60px;
+  padding-left: 15%;
+  padding-right: 5%;
   background-color: #f6f6f6;
   text-align: center;
   font-size: 20px;
@@ -304,12 +303,12 @@ body {
 }
 
 .photo {
-  position: absolute;
+  position: fixed;
   background-image: url(camera-fill.svg);
   background-size: cover;
   height: 25px;
   width: 20px;
-  left: 10px;
+  left: 38%;
 }
 
 .video {
