@@ -10,6 +10,7 @@ import UsersData from "../usersData/UsersData";
 function Chat(props) {
     let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
     const [records, setRecord] = React.useState(false);
+    const [hadRecorded, setHadRecorded] = React.useState(false);
     const toSendMassage = React.createRef('');
     var massageContent = "";
     var massageType = "";
@@ -36,10 +37,13 @@ function Chat(props) {
 
     // function sending an audio massage
     const sendRecord = (event) => {
+        if(!hadRecorded || isRecording)
+            return;
         event.preventDefault();
         let recordContent = audioURL;
         props.massages.unshift({ massage: recordContent, isRecived: false, time: new Date(), type: "audio" });
         props.setReRender(!props.reRender);
+        setHadRecorded(false);
         setRecord(false);
     }
 
@@ -55,12 +59,14 @@ function Chat(props) {
     const sendImage = (event) => {
         massageContent = URL.createObjectURL(event.target.files[0]);
         massageType = "image";
+        event.target.value = "";
         sendFile();
     }
 
     //function sending an image massage
     const sendVideo = (event) => {
         let file = event.target.files[0];
+        event.target.value = "";
         getBase64(file);
     }
 
@@ -92,6 +98,12 @@ function Chat(props) {
         sendFile();
     }
 
+    //function starting to record an audio massage
+    const startRecord = () => {
+        setHadRecorded(true);
+        startRecording();
+    }
+
     return (
         <div className="right-chat">
             <div className="headingChat">
@@ -115,11 +127,11 @@ function Chat(props) {
                     <span className="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
             </div>
-            <Modal show={records} onHide={() => setRecord(false)}>
+            <Modal show={records} onHide={() => {setRecord(false); setHadRecorded(false); stopRecording()}}>
                 <Modal.Body className="bodyRecordWin">
                     <div>
                         <audio src={audioURL} controls className="audio" />
-                        <button onClick={startRecording} disabled={isRecording} className=" form-control startRecord">
+                        <button onClick={startRecord} disabled={isRecording} className=" form-control startRecord">
                             Start recording
                         </button>
                         <button onClick={stopRecording} disabled={!isRecording} className=" form-control stoptRecord">
