@@ -345,6 +345,7 @@ body {
   color: #fff;
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
+  bottom: 10px;
 }
 
 
@@ -446,6 +447,7 @@ body {
 .messagesRecord {
   width: 31%;
   margin-top: 1%;
+  bottom: 10px;
 }
 
 
@@ -471,6 +473,7 @@ body {
   min-height: 30%;
   border-radius: 3%;
   margin-top: 2%;
+  bottom: 10px;
 }
 
 .imageMassage-sender {
@@ -493,6 +496,8 @@ body {
   min-height: 10%;
   border-radius: 3%;
   margin-top: 2%;
+  bottom: 10px;
+  
 }
 
 .videoMessage-sender {
@@ -512,7 +517,7 @@ body {
   padding: 0;
   color: rgba(0, 0, 0, .4);
   left: 31%;
-  bottom: 27px;
+  bottom: 37px;
 }
 
 .chat-time-reciever {
@@ -521,7 +526,7 @@ body {
   font-size: 85%;
   padding: 0;
   color: rgba(0, 0, 0, .4);
-  bottom: 27px;
+  bottom: 37px;
 }
 
 
@@ -529,7 +534,7 @@ body {
   position: relative;
   left: 94%;
   top: 10px;
-  width: 100px;
-  height: 50px;
+  width: 90px;
+  height: 40px;
   font-weight: 650;
 }
