@@ -38,7 +38,7 @@ function Chat(props) {
     const sendRecord = (event) => {
         event.preventDefault();
         let recordContent = audioURL;
-        props.massages.push({ massage: recordContent, isRecived: false, time: new Date(), type: "audio" });
+        props.massages.unshift({ massage: recordContent, isRecived: false, time: new Date(), type: "audio" });
         props.setReRender(!props.reRender);
         setRecord(false);
     }
@@ -80,7 +80,7 @@ function Chat(props) {
 
     //function sending the massageContent by adding it to the dataBase and re rendering the outer component
     const sendFile = (event) => {
-        props.massages.push({ massage: massageContent, isRecived: false, time: new Date(), type: massageType });
+        props.massages.unshift({ massage: massageContent, isRecived: false, time: new Date(), type: massageType });
         props.setReRender(!props.reRender);
     }
 
@@ -104,7 +104,6 @@ function Chat(props) {
             <div className="allMessages">
                 {massagesList}
             </div>
-            
             <div className="chat-box">
                 <div className="toSend">
                     <input onInput={sendImage} type="file" id="upload" accept="image/*" hidden />

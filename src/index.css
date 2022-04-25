@@ -180,6 +180,11 @@ body {
   margin: 0 !important;
 }
 
+
+.list-group-item-action:focus {
+  background-color: rgba(196, 199, 198, 0.463);
+}
+
 .avatar-icon img {
   border-radius: 50%;
   height: 10%;
@@ -231,8 +236,10 @@ body {
   left: 34.5%;
   width: 55vw;
   height: 85%;
-  overflow-y: scroll !important;
   margin-top: 70px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 
@@ -515,4 +522,14 @@ body {
   padding: 0;
   color: rgba(0, 0, 0, .4);
   bottom: 27px;
+}
+
+
+.btn-secondary {
+  position: relative;
+  left: 94%;
+  top: 10px;
+  width: 100px;
+  height: 50px;
+  font-weight: 650;
 }
