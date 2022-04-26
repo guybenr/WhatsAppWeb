@@ -34,7 +34,7 @@ function ChatScreen(props) {
         }
         let userName = props.userLoginDetails;
         // adding the contact to the database and check if the contact exist
-        if (UsersData.usersChat.has(contactName.current.value) && !UsersData.usersChat.get(userName).some(e => e.nameContact === contactName.current.value)) {
+        if (UsersData.usersChat.has(contactName.current.value) && !UsersData.usersChat.get(userName).some(e => e.nameContact === contactName.current.value) && !(contactName.current.value === userName)) {
             contacts.push(
                 { nameContact: contactName.current.value, massages: [{ massage: "", isRecived: true, time: new Date(), type: "" }] }
             );
@@ -42,6 +42,9 @@ function ChatScreen(props) {
             //if there is no such username in the database
         } else if (!UsersData.usersChat.has(contactName.current.value)) {
             alert("Contact Identifier Doesn't Exist");
+            //if the contact try add himself
+        } else if (contactName.current.value === userName) {
+            alert("Contact can't add himself");
             //if the contact already being added
         } else {
             alert("Contact Already Exist");

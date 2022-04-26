@@ -9,7 +9,7 @@ function ErrorModal(props) {
                 <Modal.Body>{props.bodyMassage}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.handleClose}>
-                        {props.closeButton}
+                        <span className="buttonError">{props.closeButton}</span>
                     </Button>
                 </Modal.Footer>
             </Modal>

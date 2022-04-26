@@ -84,6 +84,13 @@ body {
   top: 50px;
 }
 
+.buttonError {
+  position: relative;
+  top: -5px;
+}
+
+
+
 .addPhoto {
   position: relative;
   cursor: pointer;
