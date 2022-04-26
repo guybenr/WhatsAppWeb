@@ -121,6 +121,7 @@ body {
   right: 4%;
   width: 104%;
   background-color: rgba(196, 199, 198, 0.463);
+  height: 65px;
 }
 
 .searchBox-inner {
@@ -163,9 +164,12 @@ body {
 }
 
 .addChat {
-  position:relative;
-  left: 88%;
-  top: -25px;
+  position:absolute;
+  left: 69%;
+  top: 19px;
+  height: 28px;
+  border: solid rgba(148, 148, 148, 0.463) 1px;
+  box-shadow: 0 2px 2px 0 rgba(148, 148, 148, 0.463), 0 2px 2px 0 rgba(148, 148, 148, 0.463);
 }
 
 .sideBar {
@@ -531,10 +535,18 @@ body {
 
 
 .btn-secondary {
+  position: absolute;
+  left: 80%;
+  top: 18px;
+  width: 85px;
+  height: 28px;
+  background-color: rgba(146, 146, 146, 0.463);
+  border: solid rgba(148, 148, 148, 0.463) 1px;
+  box-shadow: 0 2px 5px 0 rgba(148, 148, 148, 0.463), 0 2px 5px 0 rgba(148, 148, 148, 0.463);
+  border-radius: 20px;
+}
+
+.LogOut {
   position: relative;
-  left: 94%;
-  top: 10px;
-  width: 90px;
-  height: 40px;
-  font-weight: 650;
+  top: -6px;
 }

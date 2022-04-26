@@ -77,13 +77,15 @@ function ChatScreen(props) {
 
     return (
         <div>
-            <button onClick={logOut} type="button" className="btn btn-secondary">Log out</button>
             <div className="app">
                 <div className="chatDetails">
                     <div className="heading">
                         <div className="circleProfile">
                             <img className="profileImg" src={image}></img>
                         </div>
+                        <button onClick={logOut} type="button" className="btn btn-secondary">
+                            <span className="LogOut">Log out</span>
+                        </button>
                         <div className="MyName">{name}
                             <button className="addChat btn btn-outline-secondary" type="submit" onClick={showAddContactModal}>+</button>
                         </div>
