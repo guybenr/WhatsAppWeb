@@ -121,7 +121,7 @@ body {
   right: 4%;
   width: 104%;
   background-color: rgba(196, 199, 198, 0.463);
-  height: 65px;
+  height: 69px;
 }
 
 .searchBox-inner {
@@ -292,17 +292,17 @@ body {
 
 
 .chat-box {  
-  position: fixed;
-  top: 88%;
-  left: 37.1vw; 
-  width: 55.5%;
+  position: absolute;
+  left: 34.5%;
+  width: 104%;
+  bottom: 55px;
 }
+
 .toSend {
-  display: flex;
-  position: relative;
+  position: absolute;
   width: 100%;
   padding: 10px;
-  padding-left: 15%;
+  padding-left: 10%;
   padding-right: 5%;
   background-color: #f6f6f6;
   text-align: center;
@@ -311,6 +311,7 @@ body {
 
 .textBox {
   border-radius: 50px;
+  width: 60%;
 }
 
 .photo {
